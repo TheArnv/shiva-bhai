@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiva Bhai · colour contacts + painting works · holi patches</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Font: Poppins (light, modern) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            /* multiple colour patches background (holi style) */
+            background: 
+                radial-gradient(circle at 10% 20%, #ffb3ba 0%, transparent 25%),
+                radial-gradient(circle at 90% 15%, #bae1ff 0%, transparent 30%),
+                radial-gradient(circle at 30% 80%, #c4e0c4 0%, transparent 35%),
+                radial-gradient(circle at 70% 70%, #f9e79f 0%, transparent 28%),
+                radial-gradient(circle at 50% 40%, #fad0c4 0%, transparent 40%),
+                radial-gradient(circle at 85% 50%, #d4b8d4 0%, transparent 33%),
+                radial-gradient(circle at 15% 65%, #f9c9b6 0%, transparent 27%),
+                radial-gradient(circle at 45% 85%, #b0e0e6 0%, transparent 35%),
+                linear-gradient(145deg, #fff9f0 0%, #fef6e9 100%);
+            background-attachment: fixed; /* fixed colour patches */
+            color: #3d3d3d;
+            line-height: 1.6;
+        }
+
+        /* overlay to keep content readable but colourful */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem 2.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* FIXED BACKGROUND IMAGE: painted homes */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop'); /* colourful painted homes */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 0.18;  /* very subtle to keep text readable and let holi patches shine */
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* header with extra translucency */
+        .header {
+            background: rgba(255, 250, 240, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 2.5rem;
+            padding: 1.2rem 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 15px 35px -10px rgba(255, 160, 100, 0.5), 0 0 0 1px rgba(255, 230, 200, 0.9);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 5;
+            border: 2px solid #ffdbb5;
+        }
+
+        .logo h1 {
+            font-size: 2.2rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #e3622b, #c8439b, #3b8bc0);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            font-size: 1rem;
+            font-weight: 300;
+            color: #866b54;
+            display: block;
+            line-height: 1.2;
+        }
+
+        .contact-badge {
+            display: flex;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-badge a, .contact-badge div {
+            color: #7e6b5c;
+            font-weight: 400;
+            text-decoration: none;
+            font-size: 1rem;
+            background: rgba(255, 245, 230, 0.95);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(250, 150, 80, 0.2);
+            border: 1px solid #fec89a;
+        }
+
+        .contact-badge i {
+            margin-right: 8px;
+            color: #f1804b;
+        }
+
+        .hero-wrap {
+            background: rgba(255, 250, 240, 0.9);
+            backdrop-filter: blur(4px);
+            border-radius: 3.5rem;
+            padding: 2rem 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 25px 35px -10px #f8bb88;
+            border: 2px solid #ffe4cb;
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            font-weight: 500;
+            color: #4d4239;
+        }
+
+        .hero h2 i {
+            color: #fc9e6d;
+            font-size: 2.4rem;
+            margin-right: 12px;
+        }
+
+        .owner-detail {
+            background: #ffeede;
+            border-radius: 3rem;
+            padding: 1.2rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            align-items: center;
+            margin: 1rem 0 0;
+            border: 3px dotted #fca66e;
+        }
+
+        .owner-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            background: white;
+            padding: 0.3rem 1.8rem 0.3rem 1.2rem;
+            border-radius: 60px;
+            box-shadow: 0 4px 6px #f8d9b0;
+        }
+
+        .owner-item i {
+            font-size: 1.6rem;
+            color: #f1804b;
+        }
+
+        .address-block {
+            background: #fffbf2;
+            padding: 0.7rem 2rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-weight: 300;
+            color: #604e3e;
+            border: 2px solid #fcb585;
+        }
+
+        /* section titles */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 500;
+            margin: 3rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(255, 250, 240, 0.8);
+            padding: 0.5rem 2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            width: fit-content;
+            border: 2px solid #ffcea5;
+        }
+
+        .section-title i {
+            background: #fee3cb;
+            padding: 0.8rem;
+            border-radius: 50%;
+            color: #dc7f4a;
+        }
+
+        /* WORK CARDS - perfectly aligned with consistent height and spacing */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .work-card {
+            background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 30px -8px #fcb386, 0 0 0 2px white, 0 0 0 4px #ffdec2;
+            border: none;
+            text-align: center;
+            transition: 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+            min-height: 280px;
+        }
+
+        .work-card:hover {
+            transform: scale(1.02);
+            background: white;
+            box-shadow: 0 20px 35px -5px #f9a55d;
+        }
+
+        .work-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            filter: drop-shadow(0 6px 8px #f9b185);
+        }
+
+        .work-card h3 {
+            font-size: 1.8rem;
+            font-weight: 600;
+            background: linear-gradient(145deg, #aa623b, #b3524a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 0.8rem;
+        }
+
+        .work-desc {
+            color: #6b4f3c;
+            font-size: 1rem;
+            line-height: 1.5;
+            max-width: 240px;
+            margin-top: auto;
+        }
+
+        /* colour charts - also aligned */
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .chart-card {
+            background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 15px 25px -8px #fbc48f, 0 0 0 2px #fff9f0, 0 0 0 4px #ffe1bf;
+            border: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chart-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #8b5a36;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px dashed #fcb386;
+            padding-bottom: 0.5rem;
+        }
+
+        .color-swatch-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.8rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .swatch {
+            text-align: center;
+        }
+
+        .swatch-circle {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 1.5rem;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1), 0 0 0 3px white, 0 0 0 5px #fec29a;
+            margin-bottom: 0.3rem;
+            transition: 0.1s;
+        }
+
+        .swatch-circle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 18px #f6843c;
+        }
+
+        .swatch span {
+            font-size: 0.8rem;
+            color: #6f523b;
+            background: #fff3e4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 20px;
+        }
+
+        /* lenses grid perfectly aligned */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .product-card {
+            background: rgba(255, 250, 245, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 2.5rem;
+            padding: 1.8rem 1.2rem;
+            box-shadow: 0 15px 25px -8px #fcb386, 0 0 0 2px white, 0 0 0 4px #ffe1bf;
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-card h3 {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #965d36;
+            margin-bottom: 0.8rem;
+        }
+
+        .shades {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            justify-content: center;
+            margin: 1rem 0;
+        }
+
+        .shade-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 0 0 3px white, 0 0 0 5px #fbc4a0;
+        }
+
+        .price-row {
+            margin-top: auto;
+            padding-top: 1.2rem;
+            border-top: 3px dashed #ffc8a5;
+        }
+
+        .price-row span {
+            background: #fbdec6;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            color: #b45726;
+            font-size: 1.2rem;
+        }
+
+        .info-panel {
+            background: rgba(255, 250, 240, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 3rem;
+            padding: 1.8rem 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 20px 30px -8px #f8b67a;
+            border: 3px solid #ffcea5;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .owner-contact-details {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .owner-contact-details div {
+            background: #fff2e2;
+            padding: 0.6rem 1.8rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            border: 2px solid #fdb07b;
+        }
+
+        .email-phone a {
+            text-decoration: none;
+            color: #4d3f33;
+            background: #fce2cd;
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            margin-left: 0.5rem;
+            border: 2px solid #fcb27e;
+            font-weight: 500;
+        }
+
+        .inquiry-box {
+            background: rgba(255, 250, 240, 0.95);
+            backdrop-filter: blur(4px);
+            border-radius: 3rem;
+            padding: 2.5rem;
+            border: 4px solid #fcba89;
+            margin: 3rem 0;
+            box-shadow: 0 20px 35px -5px #f7a35c;
+        }
+
+        .form-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+        }
+
+        .form-group {
+            flex: 1 1 200px;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 1rem 1.8rem;
+            border: 3px solid #fec29a;
+            border-radius: 50px;
+            font-size: 1rem;
+            background: white;
+            outline: none;
+        }
+
+        .form-group textarea {
+            border-radius: 30px;
+        }
+
+        .btn {
+            background: #fec29a;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #562e12;
+            cursor: pointer;
+            transition: 0.15s;
+            box-shadow: 0 10px 18px #f89f5f;
+            border: 2px solid #ffb177;
+        }
+
+        .btn:hover {
+            background: #ffb580;
+        }
+
+        .footer {
+            text-align: center;
+            margin: 3rem 0 1rem;
+            color: #4f3a28;
+            background: rgba(255, 245, 230, 0.9);
+            padding: 1.5rem;
+            border-radius: 60px;
+            backdrop-filter: blur(4px);
+            border: 3px solid #fcba89;
+            font-weight: 500;
+        }
+
+        .work-tagline {
+            background: rgba(252, 225, 200, 0.95);
+            border-radius: 4rem;
+            padding: 1rem 2rem;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            text-align: center;
+            border: 4px solid #ffb784;
+            backdrop-filter: blur(4px);
+            font-weight: 500;
+            color: #633e23;
+        }
+
+        /* extra holi patch effects (floating) */
+        .color-spark {
+            position: fixed;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ff9e7a60, transparent 70%);
+            bottom: 10px;
+            left: 10px;
+            z-index: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- floating colour patches (extra holi feel) -->
+    <div class="color-spark" style="top: 5%; left: 2%; background: radial-gradient(circle, #fada9f80, transparent 70%);"></div>
+    <div class="color-spark" style="bottom: 15%; right: 3%; width: 320px; height: 320px; background: radial-gradient(circle, #c3a5f980, transparent 70%);"></div>
+    <div class="color-spark" style="top: 20%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, #b0e6b080, transparent 70%);"></div>
+
+    <div class="container">
+        <!-- header -->
+        <header class="header">
+            <div class="logo">
+                <h1>शिवा भाई <span style="display: inline; font-size: 1.3rem;">🌈</span></h1>
+                <span> <i class="fa-regular fa-eye"></i> colour contacts · <i class="fa-regular fa-paint-brush"></i> painting & polishing</span>
+            </div>
+            <div class="contact-badge">
+                <div><i class="fa-solid fa-phone"></i> +91 97241 26631</div>
+                <a href="mailto:shivsharma67608@gmail.com"><i class="fa-regular fa-envelope"></i> shivsharma67608@gmail.com</a>
+            </div>
+        </header>
+
+        <!-- owner hero -->
+        <div class="hero-wrap">
+            <div class="hero">
+                <h2><i class="fa-regular fa-star"></i> Owner: Sivram Sharma (Shiva Bhai)</h2>
+                <div class="owner-detail">
+                    <div class="owner-item"><i class="fa-regular fa-building"></i> Dhantekari Akota Road</div>
+                    <div class="owner-item"><i class="fa-regular fa-map"></i> Behind police line, Vadodara</div>
+                    <div class="owner-item"><i class="fa-regular fa-flag"></i> Gujarat</div>
+                </div>
+                <div class="address-block">
+                    <i class="fa-regular fa-location-dot" style="color:#e07c3e;"></i> 
+                    <strong>Exact:</strong> Dhantekari Akota Road, Behind police line, Akota, Vadodara 390020
+                </div>
+            </div>
+        </div>
+
+        <!-- PAINTING WORK CARDS (perfectly aligned) -->
+        <div class="section-title">
+            <i class="fa-regular fa-paint-roller"></i>  
+            <span>Home & industrial colour work</span>
+        </div>
+
+        <div class="work-grid">
+            <div class="work-card"><div class="work-icon">🧴</div><h3>PU Pant</h3><div class="work-desc">Polyurethane coating for furniture, wooden floors, cabinets. High gloss & matte.</div></div>
+            <div class="work-card"><div class="work-icon">✨</div><h3>Polishing</h3><div class="work-desc">Wood polishing, melamine, lacquer, French polish for doors & vintage pieces.</div></div>
+            <div class="work-card"><div class="work-icon">🏠</div><h3>Interior colour</h3><div class="work-desc">Premium emulsions, texture paints, royal finishes, designer wall effects.</div></div>
+            <div class="work-card"><div class="work-icon">☀️</div><h3>Exterior colour</h3><div class="work-desc">Weatherproof paints, damp-proof coatings, long-life exterior emulsions.</div></div>
+            <div class="work-card"><div class="work-icon">🪵</div><h3>Wood coating</h3><div class="work-desc">Stain, varnish, protective clear coats for doors, windows, furniture.</div></div>
+            <div class="work-card"><div class="work-icon">🏗️</div><h3>Metal painting</h3><div class="work-desc">Primer, enamel, anti-rust for railings, gates, industrial structures.</div></div>
+        </div>
+
+        <!-- COLOUR CHARTS (with painted homes fixed bg behind) -->
+        <div class="section-title">
+            <i class="fa-regular fa-swatchbook"></i>  
+            <span>Colour charts · pick your shade</span>
+        </div>
+
+        <div class="chart-grid">
+            <div class="chart-card"><div class="chart-title">🏡 Interior · cool</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#e8f0fe;"></div><span>ice</span></div><div class="swatch"><div class="swatch-circle" style="background:#d4e2ed;"></div><span>mist</span></div><div class="swatch"><div class="swatch-circle" style="background:#c0d6e4;"></div><span>sky</span></div><div class="swatch"><div class="swatch-circle" style="background:#aac3d4;"></div><span>stone</span></div><div class="swatch"><div class="swatch-circle" style="background:#e1d7d0;"></div><span>greige</span></div><div class="swatch"><div class="swatch-circle" style="background:#d6c8c1;"></div><span>mushroom</span></div><div class="swatch"><div class="swatch-circle" style="background:#cab9ae;"></div><span>taupe</span></div><div class="swatch"><div class="swatch-circle" style="background:#b8a99a;"></div><span>warm</span></div></div></div>
+            <div class="chart-card"><div class="chart-title">🔥 Interior · warm</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#fbe9e7;"></div><span>blush</span></div><div class="swatch"><div class="swatch-circle" style="background:#f8d5c0;"></div><span>peach</span></div><div class="swatch"><div class="swatch-circle" style="background:#f5c6a8;"></div><span>apricot</span></div><div class="swatch"><div class="swatch-circle" style="background:#edb692;"></div><span>terra</span></div><div class="swatch"><div class="swatch-circle" style="background:#fae4bc;"></div><span>vanilla</span></div><div class="swatch"><div class="swatch-circle" style="background:#f6d6a8;"></div><span>wheat</span></div><div class="swatch"><div class="swatch-circle" style="background:#f0c48b;"></div><span>honey</span></div><div class="swatch"><div class="swatch-circle" style="background:#e8b575;"></div><span>amber</span></div></div></div>
+            <div class="chart-card"><div class="chart-title">🌳 Exterior · earth</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#cbb99f;"></div><span>sand</span></div><div class="swatch"><div class="swatch-circle" style="background:#b7a384;"></div><span>clay</span></div><div class="swatch"><div class="swatch-circle" style="background:#9f8b72;"></div><span>mocha</span></div><div class="swatch"><div class="swatch-circle" style="background:#867158;"></div><span>coffee</span></div><div class="swatch"><div class="swatch-circle" style="background:#a9b89b;"></div><span>sage</span></div><div class="swatch"><div class="swatch-circle" style="background:#8da78a;"></div><span>olive</span></div><div class="swatch"><div class="swatch-circle" style="background:#6c8c74;"></div><span>forest</span></div><div class="swatch"><div class="swatch-circle" style="background:#527a66;"></div><span>pine</span></div></div></div>
+            <div class="chart-card"><div class="chart-title">🎨 Exterior · accent</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#7f5539;"></div><span>chestnut</span></div><div class="swatch"><div class="swatch-circle" style="background:#9c6b4b;"></div><span>leather</span></div><div class="swatch"><div class="swatch-circle" style="background:#b7414b;"></div><span>brick</span></div><div class="swatch"><div class="swatch-circle" style="background:#a63437;"></div><span>russet</span></div><div class="swatch"><div class="swatch-circle" style="background:#4a6c8b;"></div><span>navy</span></div><div class="swatch"><div class="swatch-circle" style="background:#2d5f7e;"></div><span>deepsea</span></div><div class="swatch"><div class="swatch-circle" style="background:#3a6b4b;"></div><span>evergreen</span></div><div class="swatch"><div class="swatch-circle" style="background:#5f4b3a;"></div><span>walnut</span></div></div></div>
+        </div>
+
+        <div class="work-tagline"><i class="fa-regular fa-hand-sparkles"></i> Custom colour matching · free site visit · PU pant specialists · Holi patch colours inspired!</div>
+
+        <!-- LENSES SECTION (cards perfectly aligned) -->
+        <div class="section-title"><i class="fa-regular fa-circle-half-stroke"></i><span>colour contacts · every shade</span></div>
+        <div class="product-grid">
+            <div class="product-card"><div class="work-icon">🌫️</div><h3>steel grey</h3><div class="shades"><div class="shade-dot" style="background:#a9a9a9;"></div><div class="shade-dot" style="background:#808080;"></div><div class="shade-dot" style="background:#5a5a5a;"></div></div><div class="price-row"><span>₹1499</span></div></div>
+            <div class="product-card"><div class="work-icon">🍃</div><h3>hazel green</h3><div class="shades"><div class="shade-dot" style="background:#7a9b78;"></div><div class="shade-dot" style="background:#5f8575;"></div><div class="shade-dot" style="background:#b7b17a;"></div></div><div class="price-row"><span>₹1599</span></div></div>
+            <div class="product-card"><div class="work-icon">🌊</div><h3>blue myst</h3><div class="shades"><div class="shade-dot" style="background:#4f7a9e;"></div><div class="shade-dot" style="background:#2c6e8f;"></div><div class="shade-dot" style="background:#48a0b0;"></div></div><div class="price-row"><span>₹1699</span></div></div>
+            <div class="product-card"><div class="work-icon">🍯</div><h3>amber brown</h3><div class="shades"><div class="shade-dot" style="background:#b76e3e;"></div><div class="shade-dot" style="background:#aa6f4c;"></div><div class="shade-dot" style="background:#8b5a2b;"></div></div><div class="price-row"><span>₹1399</span></div></div>
+            <div class="product-card"><div class="work-icon">🔮</div><h3>violet mist</h3><div class="shades"><div class="shade-dot" style="background:#846b95;"></div><div class="shade-dot" style="background:#a57fb5;"></div><div class="shade-dot" style="background:#644e75;"></div></div><div class="price-row"><span>₹1799</span></div></div>
+            <div class="product-card"><div class="work-icon">🤎</div><h3>natural brown</h3><div class="shades"><div class="shade-dot" style="background:#745d4c;"></div><div class="shade-dot" style="background:#916e58;"></div><div class="shade-dot" style="background:#b1907a;"></div></div><div class="price-row"><span>₹1299</span></div></div>
+        </div>
+
+        <!-- info panel -->
+        <div class="info-panel">
+            <div class="owner-contact-details"><div><i class="fa-regular fa-user"></i> Sivram Sharma</div><div><i class="fa-regular fa-location-dot"></i> Dhantekari Akota Road, Behind police line</div></div>
+            <div class="email-phone"><i class="fa-regular fa-phone"></i> +91 97241 26631 <a href="mailto:shivsharma67608@gmail.com"><i class="fa-regular fa-envelope"></i> shivsharma67608@gmail.com</a></div>
+        </div>
+
+        <!-- form -->
+        <div class="inquiry-box">
+            <h3><i class="fa-regular fa-message"></i> book colour consultation</h3>
+            <form onsubmit="event.preventDefault(); alert('✅ Thanks! Shiva Bhai will contact you soon.');">
+                <div class="form-row"><div class="form-group"><input type="text" placeholder="your name" required></div><div class="form-group"><input type="tel" placeholder="phone number" required></div></div>
+                <div class="form-group"><textarea rows="2" placeholder="PU pant / interior / exterior / lenses / polishing ..."></textarea></div>
+                <button type="submit" class="btn"><i class="fa-regular fa-paper-plane"></i> send enquiry</button>
+            </form>
+        </div>
+
+        <!-- footer -->
+        <div class="footer">
+            <p>शिवा भाई · Dhantekari Akota Road, Behind police line, Vadodara · Owner: Sivram Sharma · 📞 97241 26631 · 📧 shivsharma67608@gmail.com</p>
+            <p style="margin-top:0.5rem;">🌈 colour contacts · PU pant · polishing · interior & exterior · colour charts · Holi patch colours</p>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            console.log("Shiva Bhai: painting + lenses — holi patches & painted homes fixed bg");
+            const swatches = document.querySelectorAll('.swatch-circle');
+            swatches.forEach(sw => {
+                sw.addEventListener('click', () => {
+                    const style = window.getComputedStyle(sw);
+                    alert('🎨 shade: ' + style.backgroundColor + ' — Ask Shiva Bhai for more!');
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
