@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-    <title>Shiva Bhai · Colour contacts + painting · FULL COLOUR</title>
+    <title>Shiva Bhai · Colour contacts + painting · FULL COLOUR with tools</title>
     <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Font: Poppins (light, modern) -->
@@ -35,7 +35,7 @@
             line-height: 1.5;
         }
 
-        /* painted homes background - more visible now for colourfulness */
+        /* painted homes background */
         body::before {
             content: "";
             position: fixed;
@@ -47,18 +47,18 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0.25;  /* slightly increased for more colour */
+            opacity: 0.2;
             pointer-events: none;
             z-index: 0;
         }
 
-        /* floating extra colour sparks (holi powder) */
+        /* floating colour sparks */
         .color-spark {
             position: fixed;
             width: 50vmax;
             height: 50vmax;
             border-radius: 50%;
-            background: radial-gradient(circle, #ffda9e30, transparent 75%);
+            background: radial-gradient(circle, #ffda9e40, transparent 75%);
             bottom: -10vh;
             right: -10vw;
             z-index: 0;
@@ -70,7 +70,7 @@
             left: -10vw;
             width: 80vmax;
             height: 80vmax;
-            background: radial-gradient(circle, #cba1f140, transparent 80%);
+            background: radial-gradient(circle, #cba1f160, transparent 80%);
         }
 
         .container {
@@ -92,7 +92,7 @@
             .container { padding: 0.8rem 0.8rem; }
         }
 
-        /* header - fully responsive */
+        /* header */
         .header {
             background: rgba(255, 245, 235, 0.92);
             backdrop-filter: blur(10px);
@@ -153,7 +153,7 @@
 
         .contact-badge i { margin-right: 8px; color: #d45d1c; }
 
-        /* hero - responsive */
+        /* hero */
         .hero-wrap {
             background: rgba(255, 245, 235, 0.95);
             backdrop-filter: blur(8px);
@@ -234,7 +234,28 @@
             font-size: 1.3rem;
         }
 
-        /* WORK CARDS - super colourful and responsive grid */
+        /* ===== PAINTING TOOLS SECTION (NEW) ===== */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .tool-card {
+            background: linear-gradient(145deg, #fff4e2, #ffebd2);
+            border-radius: 2rem;
+            padding: 1.5rem 0.8rem;
+            box-shadow: 0 15px 30px -5px #f79a5a, 0 0 0 4px #ffe1c6, 0 0 0 8px #ffc8a2;
+            text-align: center;
+            border: 3px solid #fea456;
+            transition: 0.2s;
+        }
+        .tool-card:hover { transform: scale(1.03); background: #fff7e7; }
+        .tool-icon { font-size: 2.8rem; margin-bottom: 0.5rem; filter: drop-shadow(0 6px 8px #fb9f5e); }
+        .tool-card h4 { font-size: 1.2rem; font-weight: 700; color: #8a411b; }
+        .tool-card p { font-size: 0.85rem; color: #4d2d13; background: #fde9d8; padding: 0.3rem; border-radius: 30px; margin-top: 0.5rem; }
+
+        /* WORK CARDS */
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -295,7 +316,7 @@
             border: 2px solid #fcbc89;
         }
 
-        /* colour charts - vibrant */
+        /* colour charts - FIXED EXTERIOR ACCENT CARD */
         .chart-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -315,7 +336,7 @@
         .chart-card:nth-child(1) { background: #fff5e9; }
         .chart-card:nth-child(2) { background: #fef3e3; }
         .chart-card:nth-child(3) { background: #ecf6ea; }
-        .chart-card:nth-child(4) { background: #fce7f0; }
+        .chart-card:nth-child(4) { background: #fce7f0; } /* fixed: now exterior accent has distinct background */
 
         .chart-title {
             font-size: clamp(1.4rem, 4vw, 1.9rem);
@@ -533,7 +554,6 @@
             box-shadow: 0 12px 18px #f47c32;
         }
 
-        /* phone specific fine-tuning */
         @media (max-width: 480px) {
             .header { flex-direction: column; text-align: center; }
             .contact-badge { justify-content: center; }
@@ -577,7 +597,21 @@
             </div>
         </div>
 
-        <!-- PAINTING WORK CARDS (colourful) -->
+        <!-- ===== NEW: PAINTING TOOLS SECTION ===== -->
+        <div class="section-title">
+            <i class="fa-solid fa-toolbox"></i>  
+            <span>Painting tools & equipment</span>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-paint-roller"></i></div><h4>Rollers</h4><p>Premium nap rollers, smooth finish</p></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-brush"></i></div><h4>Brushes</h4><p>Angle, flat & detail brushes</p></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-fill-drip"></i></div><h4>Trays</h4><p>Heavy-duty paint trays</p></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-tape"></i></div><h4>Masking tape</h4><p>Sharp edges, no bleed</p></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-ruler-combined"></i></div><h4>Putty knives</h4><p>Flexible & stainless</p></div>
+            <div class="tool-card"><div class="tool-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div><h4>Sprayers</h4><p>HVLP & airless spray</p></div>
+        </div>
+
+        <!-- PAINTING WORK CARDS -->
         <div class="section-title">
             <i class="fa-regular fa-paint-roller"></i>  
             <span>Home & industrial colour work</span>
@@ -592,7 +626,7 @@
             <div class="work-card"><div class="work-icon">🏗️</div><h3>Metal painting</h3><div class="work-desc">Primer, enamel, anti-rust for railings, gates.</div></div>
         </div>
 
-        <!-- COLOUR CHARTS (more swatches) -->
+        <!-- COLOUR CHARTS (EXTERIOR ACCENT FIXED) -->
         <div class="section-title">
             <i class="fa-regular fa-swatchbook"></i>  
             <span>Colour charts · pick your shade</span>
@@ -602,10 +636,20 @@
             <div class="chart-card"><div class="chart-title">🏡 Interior · cool</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#e8f0fe;"></div><span>ice</span></div><div class="swatch"><div class="swatch-circle" style="background:#d4e2ed;"></div><span>mist</span></div><div class="swatch"><div class="swatch-circle" style="background:#c0d6e4;"></div><span>sky</span></div><div class="swatch"><div class="swatch-circle" style="background:#aac3d4;"></div><span>stone</span></div><div class="swatch"><div class="swatch-circle" style="background:#e1d7d0;"></div><span>greige</span></div><div class="swatch"><div class="swatch-circle" style="background:#d6c8c1;"></div><span>mushroom</span></div><div class="swatch"><div class="swatch-circle" style="background:#cab9ae;"></div><span>taupe</span></div><div class="swatch"><div class="swatch-circle" style="background:#b8a99a;"></div><span>warm</span></div></div></div>
             <div class="chart-card"><div class="chart-title">🔥 Interior · warm</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#fbe9e7;"></div><span>blush</span></div><div class="swatch"><div class="swatch-circle" style="background:#f8d5c0;"></div><span>peach</span></div><div class="swatch"><div class="swatch-circle" style="background:#f5c6a8;"></div><span>apricot</span></div><div class="swatch"><div class="swatch-circle" style="background:#edb692;"></div><span>terra</span></div><div class="swatch"><div class="swatch-circle" style="background:#fae4bc;"></div><span>vanilla</span></div><div class="swatch"><div class="swatch-circle" style="background:#f6d6a8;"></div><span>wheat</span></div><div class="swatch"><div class="swatch-circle" style="background:#f0c48b;"></div><span>honey</span></div><div class="swatch"><div class="swatch-circle" style="background:#e8b575;"></div><span>amber</span></div></div></div>
             <div class="chart-card"><div class="chart-title">🌳 Exterior · earth</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#cbb99f;"></div><span>sand</span></div><div class="swatch"><div class="swatch-circle" style="background:#b7a384;"></div><span>clay</span></div><div class="swatch"><div class="swatch-circle" style="background:#9f8b72;"></div><span>mocha</span></div><div class="swatch"><div class="swatch-circle" style="background:#867158;"></div><span>coffee</span></div><div class="swatch"><div class="swatch-circle" style="background:#a9b89b;"></div><span>sage</span></div><div class="swatch"><div class="swatch-circle" style="background:#8da78a;"></div><span>olive</span></div><div class="swatch"><div class="swatch-circle" style="background:#6c8c74;"></div><span>forest</span></div><div class="swatch"><div class="swatch-circle" style="background:#527a66;"></div><span>pine</span></div></div></div>
-            <div class="chart-card"><div class="chart-title">🎨 Exterior · accent</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#7f5539;"></div><span>chestnut</span></div><div class="swatch"><div class="swatch-circle" style="background:#9c6b4b;"></div><span>leather</span></div><div class="swatch"><div class="swatch-circle" style="background:#b7414b;"></div><span>brick</span></div><div class="swatch"><div class="swatch-circle" style="background:#a63437;"></div><span>russet</span></div><div class="swatch"><div class="swatch-circle" style="background:#4a6c8b;"></div><span>navy</span></div><div class="swatch"><div class="swatch-circle" style="background:#2d5f7e;"></div><span>deepsea</span></div><div class="swatch"><div class="swatch-circle" style="background:#3a6b4b;"></div><span>evergreen</span></div><div class="swatch"><div class="swatch-circle" style="background:#5f4b3a;"></div><span>walnut</span></div></div></div>
+            <!-- FIXED EXTERIOR ACCENT CARD with proper swatches -->
+            <div class="chart-card"><div class="chart-title">🎨 Exterior · accent</div><div class="color-swatch-grid">
+                <div class="swatch"><div class="swatch-circle" style="background:#7f5539;"></div><span>chestnut</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#9c6b4b;"></div><span>leather</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#b7414b;"></div><span>brick</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#a63437;"></div><span>russet</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#4a6c8b;"></div><span>navy</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#2d5f7e;"></div><span>deepsea</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#3a6b4b;"></div><span>evergreen</span></div>
+                <div class="swatch"><div class="swatch-circle" style="background:#5f4b3a;"></div><span>walnut</span></div>
+            </div></div>
         </div>
 
-        <div class="work-tagline"><i class="fa-regular fa-hand-sparkles"></i> Custom colour matching · free site visit · Holi patch colours inspired!</div>
+        <div class="work-tagline"><i class="fa-regular fa-hand-sparkles"></i> Custom colour matching · free site visit · Professional tools available</div>
 
         <!-- LENSES SECTION -->
         <div class="section-title"><i class="fa-regular fa-circle-half-stroke"></i><span>colour contacts · every shade</span></div>
@@ -629,7 +673,7 @@
             <h3 style="font-size: clamp(1.4rem,4vw,2rem); margin-bottom:1.2rem;"><i class="fa-regular fa-message"></i> book colour consultation</h3>
             <form onsubmit="event.preventDefault(); alert('✅ Thanks! Shiva Bhai will contact you soon.');">
                 <div class="form-row"><div class="form-group"><input type="text" placeholder="your name" required></div><div class="form-group"><input type="tel" placeholder="phone number" required></div></div>
-                <div class="form-group"><textarea rows="2" placeholder="PU pant / interior / exterior / lenses / polishing ..."></textarea></div>
+                <div class="form-group"><textarea rows="2" placeholder="PU pant / interior / exterior / lenses / polishing / tools..."></textarea></div>
                 <button type="submit" class="btn"><i class="fa-regular fa-paper-plane"></i> send enquiry</button>
             </form>
         </div>
@@ -637,7 +681,7 @@
         <!-- footer -->
         <div class="footer">
             <p>शिवा भाई · Dhantekari Akota Road, Behind police line, Vadodara · Owner: Sivram Sharma · 📞 97241 26631 · 📧 shivsharma67608@gmail.com</p>
-            <p style="margin-top:0.5rem;">🌈 colour contacts · PU pant · polishing · interior & exterior · colour charts · full colour</p>
+            <p style="margin-top:0.5rem;">🌈 colour contacts · PU pant · polishing · interior & exterior · painting tools · colour charts</p>
         </div>
     </div>
 
