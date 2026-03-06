@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shiva Bhai · colour contacts + painting works · holi patches</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <title>Shiva Bhai · Colour contacts + painting · FULL COLOUR</title>
     <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Font: Poppins (light, modern) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -17,32 +17,25 @@
         }
 
         body {
-            /* multiple colour patches background (holi style) */
+            /* explosive colour patches background - Holi explosion */
             background: 
-                radial-gradient(circle at 10% 20%, #ffb3ba 0%, transparent 25%),
-                radial-gradient(circle at 90% 15%, #bae1ff 0%, transparent 30%),
-                radial-gradient(circle at 30% 80%, #c4e0c4 0%, transparent 35%),
-                radial-gradient(circle at 70% 70%, #f9e79f 0%, transparent 28%),
-                radial-gradient(circle at 50% 40%, #fad0c4 0%, transparent 40%),
-                radial-gradient(circle at 85% 50%, #d4b8d4 0%, transparent 33%),
-                radial-gradient(circle at 15% 65%, #f9c9b6 0%, transparent 27%),
-                radial-gradient(circle at 45% 85%, #b0e0e6 0%, transparent 35%),
-                linear-gradient(145deg, #fff9f0 0%, #fef6e9 100%);
-            background-attachment: fixed; /* fixed colour patches */
-            color: #3d3d3d;
-            line-height: 1.6;
+                radial-gradient(circle at 2% 8%, #ff6b8b 0%, transparent 28%),
+                radial-gradient(circle at 98% 15%, #ffb347 0%, transparent 32%),
+                radial-gradient(circle at 12% 88%, #6a5acd 0%, transparent 35%),
+                radial-gradient(circle at 75% 92%, #3cb371 0%, transparent 30%),
+                radial-gradient(circle at 45% 25%, #ff9f7c 0%, transparent 38%),
+                radial-gradient(circle at 82% 42%, #f9e076 0%, transparent 40%),
+                radial-gradient(circle at 30% 55%, #dda0dd 0%, transparent 42%),
+                radial-gradient(circle at 55% 78%, #87ceeb 0%, transparent 36%),
+                radial-gradient(circle at 92% 70%, #f4a460 0%, transparent 33%),
+                radial-gradient(circle at 8% 40%, #ffb6c1 0%, transparent 45%),
+                linear-gradient(165deg, #fff1e0 0%, #ffe8d4 100%);
+            background-attachment: fixed;
+            color: #2a2a2a;
+            line-height: 1.5;
         }
 
-        /* overlay to keep content readable but colourful */
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 2rem 2.5rem;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* FIXED BACKGROUND IMAGE: painted homes */
+        /* painted homes background - more visible now for colourfulness */
         body::before {
             content: "";
             position: fixed;
@@ -50,246 +43,293 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop'); /* colourful painted homes */
+            background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            opacity: 0.18;  /* very subtle to keep text readable and let holi patches shine */
+            opacity: 0.25;  /* slightly increased for more colour */
             pointer-events: none;
-            z-index: 1;
+            z-index: 0;
         }
 
-        /* header with extra translucency */
+        /* floating extra colour sparks (holi powder) */
+        .color-spark {
+            position: fixed;
+            width: 50vmax;
+            height: 50vmax;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffda9e30, transparent 75%);
+            bottom: -10vh;
+            right: -10vw;
+            z-index: 0;
+            pointer-events: none;
+            mix-blend-mode: soft-light;
+        }
+        .spark2 {
+            top: -5vh;
+            left: -10vw;
+            width: 80vmax;
+            height: 80vmax;
+            background: radial-gradient(circle, #cba1f140, transparent 80%);
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.8rem 2rem;
+            position: relative;
+            z-index: 5;
+        }
+
+        /* ===== RESPONSIVE BREAKPOINTS ===== */
+        @media (max-width: 1024px) {
+            .container { padding: 1.5rem 1.5rem; }
+        }
+        @media (max-width: 768px) {
+            .container { padding: 1rem 1rem; }
+        }
+        @media (max-width: 480px) {
+            .container { padding: 0.8rem 0.8rem; }
+        }
+
+        /* header - fully responsive */
         .header {
-            background: rgba(255, 250, 240, 0.85);
-            backdrop-filter: blur(8px);
-            border-radius: 2.5rem;
-            padding: 1.2rem 2.5rem;
+            background: rgba(255, 245, 235, 0.92);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 2.2rem;
+            padding: 1rem 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 15px 35px -10px rgba(255, 160, 100, 0.5), 0 0 0 1px rgba(255, 230, 200, 0.9);
+            box-shadow: 0 20px 35px -8px #faba7a, 0 0 0 3px #ffe6cd, 0 0 0 6px #ffbba0;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            z-index: 5;
-            border: 2px solid #ffdbb5;
+            gap: 1.2rem;
+            border: 2px solid #ffc9a2;
         }
 
         .logo h1 {
-            font-size: 2.2rem;
-            font-weight: 600;
-            background: linear-gradient(135deg, #e3622b, #c8439b, #3b8bc0);
+            font-size: clamp(1.8rem, 5vw, 2.4rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, #e0342e, #c449c4, #2f76cf);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             letter-spacing: -0.5px;
+            line-height: 1.1;
         }
 
         .logo span {
-            font-size: 1rem;
-            font-weight: 300;
-            color: #866b54;
-            display: block;
-            line-height: 1.2;
+            font-size: clamp(0.8rem, 2.5vw, 1rem);
+            font-weight: 400;
+            color: #915e3a;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.3rem;
         }
 
         .contact-badge {
             display: flex;
-            gap: 1.8rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         .contact-badge a, .contact-badge div {
-            color: #7e6b5c;
-            font-weight: 400;
+            color: #552f14;
+            font-weight: 500;
             text-decoration: none;
-            font-size: 1rem;
-            background: rgba(255, 245, 230, 0.95);
-            padding: 0.4rem 1.2rem;
-            border-radius: 40px;
-            box-shadow: 0 4px 10px rgba(250, 150, 80, 0.2);
-            border: 1px solid #fec89a;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            background: #fee9d6;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            box-shadow: 0 8px 18px #feb27b, 0 0 0 2px white, 0 0 0 4px #fdc19e;
+            border: none;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
         }
 
-        .contact-badge i {
-            margin-right: 8px;
-            color: #f1804b;
-        }
+        .contact-badge i { margin-right: 8px; color: #d45d1c; }
 
+        /* hero - responsive */
         .hero-wrap {
-            background: rgba(255, 250, 240, 0.9);
-            backdrop-filter: blur(4px);
-            border-radius: 3.5rem;
-            padding: 2rem 2.5rem;
+            background: rgba(255, 245, 235, 0.95);
+            backdrop-filter: blur(8px);
+            border-radius: 3rem;
+            padding: 1.8rem 2rem;
             margin-bottom: 2.5rem;
-            box-shadow: 0 25px 35px -10px #f8bb88;
-            border: 2px solid #ffe4cb;
-            position: relative;
-            z-index: 5;
+            box-shadow: 0 25px 35px -8px #fcac6a, 0 0 0 4px #fecbad, 0 0 0 8px #ffdbb5;
+            border: 3px solid #ffbc84;
         }
 
         .hero h2 {
-            font-size: 2.5rem;
-            font-weight: 500;
-            color: #4d4239;
-        }
-
-        .hero h2 i {
-            color: #fc9e6d;
-            font-size: 2.4rem;
-            margin-right: 12px;
-        }
-
-        .owner-detail {
-            background: #ffeede;
-            border-radius: 3rem;
-            padding: 1.2rem 2rem;
+            font-size: clamp(1.5rem, 5vw, 2.4rem);
+            font-weight: 600;
+            color: #3b281e;
             display: flex;
             flex-wrap: wrap;
-            gap: 2rem;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero h2 i { color: #f2622e; font-size: 2rem; }
+
+        .owner-detail {
+            background: #ffdcc4;
+            border-radius: 4rem;
+            padding: 1rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
             align-items: center;
             margin: 1rem 0 0;
-            border: 3px dotted #fca66e;
+            border: 4px dotted #faa65e;
         }
 
         .owner-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.1rem;
+            gap: 8px;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
             background: white;
-            padding: 0.3rem 1.8rem 0.3rem 1.2rem;
+            padding: 0.5rem 1.5rem;
             border-radius: 60px;
-            box-shadow: 0 4px 6px #f8d9b0;
-        }
-
-        .owner-item i {
-            font-size: 1.6rem;
-            color: #f1804b;
+            box-shadow: 0 6px 14px #ffb482;
+            border: 2px solid #fdbb85;
         }
 
         .address-block {
-            background: #fffbf2;
-            padding: 0.7rem 2rem;
+            background: #fff8e7;
+            padding: 0.6rem 1.8rem;
             border-radius: 60px;
-            font-size: 1rem;
-            font-weight: 300;
-            color: #604e3e;
-            border: 2px solid #fcb585;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
+            border: 3px solid #fcb27e;
+            box-shadow: inset 0 2px 8px #ffe3c6;
         }
 
         /* section titles */
         .section-title {
-            font-size: 2.2rem;
-            font-weight: 500;
-            margin: 3rem 0 1.5rem;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
+            font-weight: 600;
+            margin: 2.5rem 0 1.5rem;
             display: flex;
             align-items: center;
             gap: 1rem;
-            background: rgba(255, 250, 240, 0.8);
+            background: rgba(255, 235, 215, 0.95);
             padding: 0.5rem 2rem;
-            border-radius: 60px;
+            border-radius: 80px;
             backdrop-filter: blur(4px);
             width: fit-content;
-            border: 2px solid #ffcea5;
+            border: 4px solid #fea55e;
+            box-shadow: 0 12px 18px #fbb177;
         }
 
         .section-title i {
-            background: #fee3cb;
-            padding: 0.8rem;
+            background: #fdae6d;
+            padding: 0.7rem;
             border-radius: 50%;
-            color: #dc7f4a;
+            color: white;
+            font-size: 1.3rem;
         }
 
-        /* WORK CARDS - perfectly aligned with consistent height and spacing */
+        /* WORK CARDS - super colourful and responsive grid */
         .work-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0 1rem;
+            gap: 1.8rem;
+            margin: 2rem 0;
         }
 
         .work-card {
-            background: rgba(255, 250, 245, 0.95);
-            backdrop-filter: blur(4px);
+            background: linear-gradient(145deg, #fffbf2, #fffbee);
             border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 15px 30px -8px #fcb386, 0 0 0 2px white, 0 0 0 4px #ffdec2;
-            border: none;
+            padding: 2rem 1.2rem;
+            box-shadow: 0 20px 35px -6px #fc9f5e, 0 0 0 4px #ffceaa, 0 0 0 8px #ffe0bc;
             text-align: center;
             transition: 0.2s;
             display: flex;
             flex-direction: column;
             align-items: center;
             height: 100%;
-            min-height: 280px;
+            border: 3px solid #fec89a;
         }
+
+        .work-card:nth-child(1) { background: linear-gradient(145deg, #fff2e8, #ffe8da); }
+        .work-card:nth-child(2) { background: linear-gradient(145deg, #fff0e0, #fdebd0); }
+        .work-card:nth-child(3) { background: linear-gradient(145deg, #ebf5e8, #e2f0da); }
+        .work-card:nth-child(4) { background: linear-gradient(145deg, #feecd7, #fde3cb); }
+        .work-card:nth-child(5) { background: linear-gradient(145deg, #fde5f0, #fcdceb); }
+        .work-card:nth-child(6) { background: linear-gradient(145deg, #ddf0f5, #cce9f0); }
 
         .work-card:hover {
             transform: scale(1.02);
-            background: white;
-            box-shadow: 0 20px 35px -5px #f9a55d;
+            box-shadow: 0 22px 40px -4px #f57c31, 0 0 0 6px #fdd6b4, 0 0 0 10px #fec89a;
         }
 
         .work-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            filter: drop-shadow(0 6px 8px #f9b185);
+            font-size: clamp(2.8rem, 7vw, 4rem);
+            margin-bottom: 0.8rem;
+            filter: drop-shadow(0 8px 12px #fcac78);
         }
 
         .work-card h3 {
-            font-size: 1.8rem;
-            font-weight: 600;
-            background: linear-gradient(145deg, #aa623b, #b3524a);
+            font-size: clamp(1.5rem, 4vw, 1.9rem);
+            font-weight: 700;
+            background: linear-gradient(130deg, #b64516, #b32b6f);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
         }
 
         .work-desc {
-            color: #6b4f3c;
-            font-size: 1rem;
-            line-height: 1.5;
-            max-width: 240px;
+            color: #3c281b;
+            font-size: clamp(0.9rem, 2.5vw, 1rem);
+            max-width: 260px;
             margin-top: auto;
+            background: #fdeedb;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            border: 2px solid #fcbc89;
         }
 
-        /* colour charts - also aligned */
+        /* colour charts - vibrant */
         .chart-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 2rem;
             margin: 2rem 0;
         }
 
         .chart-card {
-            background: rgba(255, 250, 245, 0.95);
+            background: rgba(255, 250, 240, 0.98);
             backdrop-filter: blur(4px);
             border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            box-shadow: 0 15px 25px -8px #fbc48f, 0 0 0 2px #fff9f0, 0 0 0 4px #ffe1bf;
-            border: none;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            padding: 1.8rem 1.2rem;
+            box-shadow: 0 18px 28px -8px #faa55b, 0 0 0 5px #ffe6c9, 0 0 0 9px #ffdbb5;
+            border: 3px solid #ffb77c;
         }
 
+        .chart-card:nth-child(1) { background: #fff5e9; }
+        .chart-card:nth-child(2) { background: #fef3e3; }
+        .chart-card:nth-child(3) { background: #ecf6ea; }
+        .chart-card:nth-child(4) { background: #fce7f0; }
+
         .chart-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            color: #8b5a36;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px dashed #fcb386;
-            padding-bottom: 0.5rem;
+            font-size: clamp(1.4rem, 4vw, 1.9rem);
+            font-weight: 700;
+            color: #87431d;
+            margin-bottom: 1.2rem;
+            border-bottom: 4px dashed #faa344;
+            padding-bottom: 0.6rem;
         }
 
         .color-swatch-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 0.8rem;
-            margin: 1rem 0 0.5rem;
+            gap: 0.7rem;
         }
 
         .swatch {
@@ -299,129 +339,132 @@
         .swatch-circle {
             width: 100%;
             aspect-ratio: 1;
-            border-radius: 1.5rem;
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1), 0 0 0 3px white, 0 0 0 5px #fec29a;
+            border-radius: 1.2rem;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.1), 0 0 0 4px white, 0 0 0 7px #fec29a;
             margin-bottom: 0.3rem;
             transition: 0.1s;
+            border: 2px solid #ffc18d;
         }
 
         .swatch-circle:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 18px #f6843c;
+            transform: scale(1.08);
+            box-shadow: 0 12px 20px #f87928;
         }
 
         .swatch span {
-            font-size: 0.8rem;
-            color: #6f523b;
-            background: #fff3e4;
-            padding: 0.2rem 0.4rem;
+            font-size: 0.7rem;
+            color: #683f1e;
+            background: #ffe9d4;
+            padding: 0.2rem 0.3rem;
             border-radius: 20px;
+            font-weight: 600;
         }
 
-        /* lenses grid perfectly aligned */
+        /* lenses grid */
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin: 1.5rem 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0;
         }
 
         .product-card {
-            background: rgba(255, 250, 245, 0.95);
-            backdrop-filter: blur(4px);
+            background: linear-gradient(145deg, #fff3e4, #ffeada);
             border-radius: 2.5rem;
-            padding: 1.8rem 1.2rem;
-            box-shadow: 0 15px 25px -8px #fcb386, 0 0 0 2px white, 0 0 0 4px #ffe1bf;
+            padding: 1.5rem 1rem;
+            box-shadow: 0 18px 30px -6px #f98e4a, 0 0 0 5px #ffddbf, 0 0 0 9px #fec89a;
             text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            border: 3px solid #ffac6b;
         }
 
+        .product-card:nth-child(odd) { background: linear-gradient(145deg, #f2f0ff, #eae4fd); }
+        .product-card:nth-child(even) { background: linear-gradient(145deg, #fef3dd, #fdebd1); }
+
         .product-card h3 {
-            font-size: 1.7rem;
-            font-weight: 600;
-            color: #965d36;
-            margin-bottom: 0.8rem;
+            font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            color: #9e411d;
         }
 
         .shades {
             display: flex;
             flex-wrap: wrap;
-            gap: 0.6rem;
+            gap: 0.5rem;
             justify-content: center;
             margin: 1rem 0;
         }
 
         .shade-dot {
-            width: 40px;
-            height: 40px;
-            border-radius: 40px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1), 0 0 0 3px white, 0 0 0 5px #fbc4a0;
-        }
-
-        .price-row {
-            margin-top: auto;
-            padding-top: 1.2rem;
-            border-top: 3px dashed #ffc8a5;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px #fd8f4b, 0 0 0 4px white, 0 0 0 7px #ffb27d;
         }
 
         .price-row span {
-            background: #fbdec6;
-            padding: 0.3rem 1.2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            color: #b45726;
-            font-size: 1.2rem;
+            background: #fccd9c;
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #5b2d0a;
+            font-size: 1.1rem;
+            border: 3px solid #ff9436;
         }
 
         .info-panel {
-            background: rgba(255, 250, 240, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 3rem;
-            padding: 1.8rem 2.5rem;
+            background: rgba(255, 240, 220, 0.98);
+            backdrop-filter: blur(8px);
+            border-radius: 4rem;
+            padding: 1.5rem 2rem;
             margin: 3rem 0;
-            box-shadow: 0 20px 30px -8px #f8b67a;
-            border: 3px solid #ffcea5;
+            box-shadow: 0 25px 30px -8px #fa9e5a, 0 0 0 6px #fec89a, 0 0 0 12px #ffe3bf;
             display: flex;
             flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
+            gap: 1.5rem;
+            border: 4px solid #fca759;
         }
 
         .owner-contact-details {
             display: flex;
-            gap: 1.5rem;
+            gap: 1.2rem;
             flex-wrap: wrap;
         }
 
         .owner-contact-details div {
-            background: #fff2e2;
-            padding: 0.6rem 1.8rem;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            border: 2px solid #fdb07b;
+            background: #fccfaa;
+            padding: 0.6rem 1.5rem;
+            border-radius: 60px;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            border: 4px solid #ffad63;
+            font-weight: 600;
+            color: #301a09;
         }
 
         .email-phone a {
             text-decoration: none;
-            color: #4d3f33;
-            background: #fce2cd;
-            padding: 0.5rem 1.5rem;
-            border-radius: 40px;
-            margin-left: 0.5rem;
-            border: 2px solid #fcb27e;
-            font-weight: 500;
+            color: #341e0c;
+            background: #ffb16b;
+            padding: 0.7rem 1.8rem;
+            border-radius: 60px;
+            font-weight: 600;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            border: 4px solid #ffdbb5;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 8px 16px #f77828;
         }
 
         .inquiry-box {
-            background: rgba(255, 250, 240, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 3rem;
-            padding: 2.5rem;
-            border: 4px solid #fcba89;
+            background: rgba(255, 240, 225, 0.98);
+            backdrop-filter: blur(10px);
+            border-radius: 3.5rem;
+            padding: 2rem;
+            border: 6px solid #fcb17c;
             margin: 3rem 0;
-            box-shadow: 0 20px 35px -5px #f7a35c;
+            box-shadow: 0 28px 38px -6px #f68c48, 0 0 0 8px #ffe5cd;
         }
 
         .form-row {
@@ -436,86 +479,80 @@
 
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1rem 1.8rem;
-            border: 3px solid #fec29a;
-            border-radius: 50px;
+            padding: 1rem 1.5rem;
+            border: 4px solid #fdae75;
+            border-radius: 60px;
             font-size: 1rem;
             background: white;
             outline: none;
+            font-weight: 500;
         }
 
-        .form-group textarea {
-            border-radius: 30px;
-        }
+        .form-group textarea { border-radius: 30px; }
 
         .btn {
-            background: #fec29a;
+            background: #ffa85c;
             border: none;
             padding: 1rem 2.5rem;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #562e12;
+            border-radius: 60px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2f1706;
             cursor: pointer;
             transition: 0.15s;
-            box-shadow: 0 10px 18px #f89f5f;
-            border: 2px solid #ffb177;
+            box-shadow: 0 18px 28px #f56f1e, 0 0 0 5px #ffe3c7;
+            border: 4px solid #ffdbb5;
         }
 
-        .btn:hover {
-            background: #ffb580;
-        }
+        .btn:hover { background: #ff943b; transform: scale(1.02); }
 
         .footer {
             text-align: center;
-            margin: 3rem 0 1rem;
-            color: #4f3a28;
-            background: rgba(255, 245, 230, 0.9);
-            padding: 1.5rem;
-            border-radius: 60px;
+            margin: 3rem 0 0.5rem;
+            background: rgba(255, 220, 180, 0.98);
+            padding: 1.5rem 1rem;
+            border-radius: 80px;
             backdrop-filter: blur(4px);
-            border: 3px solid #fcba89;
-            font-weight: 500;
+            border: 6px solid #fea653;
+            font-weight: 600;
+            color: #3b1f07;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            box-shadow: 0 0 0 8px #fff1d6;
         }
 
         .work-tagline {
-            background: rgba(252, 225, 200, 0.95);
-            border-radius: 4rem;
-            padding: 1rem 2rem;
+            background: #ffc293;
+            border-radius: 80px;
+            padding: 1rem 1.8rem;
             margin: 2rem 0;
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             text-align: center;
-            border: 4px solid #ffb784;
-            backdrop-filter: blur(4px);
-            font-weight: 500;
-            color: #633e23;
+            border: 6px solid #fda75a;
+            font-weight: 600;
+            color: #311505;
+            box-shadow: 0 12px 18px #f47c32;
         }
 
-        /* extra holi patch effects (floating) */
-        .color-spark {
-            position: fixed;
-            width: 250px;
-            height: 250px;
-            border-radius: 50%;
-            background: radial-gradient(circle, #ff9e7a60, transparent 70%);
-            bottom: 10px;
-            left: 10px;
-            z-index: 0;
-            pointer-events: none;
+        /* phone specific fine-tuning */
+        @media (max-width: 480px) {
+            .header { flex-direction: column; text-align: center; }
+            .contact-badge { justify-content: center; }
+            .owner-detail { justify-content: center; }
+            .section-title { padding: 0.5rem 1.2rem; }
+            .work-card { padding: 1.5rem 0.8rem; }
+            .color-swatch-grid { gap: 0.4rem; }
         }
     </style>
 </head>
 <body>
-    <!-- floating colour patches (extra holi feel) -->
-    <div class="color-spark" style="top: 5%; left: 2%; background: radial-gradient(circle, #fada9f80, transparent 70%);"></div>
-    <div class="color-spark" style="bottom: 15%; right: 3%; width: 320px; height: 320px; background: radial-gradient(circle, #c3a5f980, transparent 70%);"></div>
-    <div class="color-spark" style="top: 20%; right: 10%; width: 200px; height: 200px; background: radial-gradient(circle, #b0e6b080, transparent 70%);"></div>
+    <div class="color-spark"></div>
+    <div class="color-spark spark2"></div>
 
     <div class="container">
         <!-- header -->
         <header class="header">
             <div class="logo">
-                <h1>शिवा भाई <span style="display: inline; font-size: 1.3rem;">🌈</span></h1>
+                <h1>शिवा भाई 🌈✨</h1>
                 <span> <i class="fa-regular fa-eye"></i> colour contacts · <i class="fa-regular fa-paint-brush"></i> painting & polishing</span>
             </div>
             <div class="contact-badge">
@@ -540,22 +577,22 @@
             </div>
         </div>
 
-        <!-- PAINTING WORK CARDS (perfectly aligned) -->
+        <!-- PAINTING WORK CARDS (colourful) -->
         <div class="section-title">
             <i class="fa-regular fa-paint-roller"></i>  
             <span>Home & industrial colour work</span>
         </div>
 
         <div class="work-grid">
-            <div class="work-card"><div class="work-icon">🧴</div><h3>PU Pant</h3><div class="work-desc">Polyurethane coating for furniture, wooden floors, cabinets. High gloss & matte.</div></div>
-            <div class="work-card"><div class="work-icon">✨</div><h3>Polishing</h3><div class="work-desc">Wood polishing, melamine, lacquer, French polish for doors & vintage pieces.</div></div>
-            <div class="work-card"><div class="work-icon">🏠</div><h3>Interior colour</h3><div class="work-desc">Premium emulsions, texture paints, royal finishes, designer wall effects.</div></div>
-            <div class="work-card"><div class="work-icon">☀️</div><h3>Exterior colour</h3><div class="work-desc">Weatherproof paints, damp-proof coatings, long-life exterior emulsions.</div></div>
-            <div class="work-card"><div class="work-icon">🪵</div><h3>Wood coating</h3><div class="work-desc">Stain, varnish, protective clear coats for doors, windows, furniture.</div></div>
-            <div class="work-card"><div class="work-icon">🏗️</div><h3>Metal painting</h3><div class="work-desc">Primer, enamel, anti-rust for railings, gates, industrial structures.</div></div>
+            <div class="work-card"><div class="work-icon">🧴</div><h3>PU Pant</h3><div class="work-desc">Polyurethane coating for furniture, wooden floors, cabinets.</div></div>
+            <div class="work-card"><div class="work-icon">✨</div><h3>Polishing</h3><div class="work-desc">Wood polishing, melamine, lacquer, French polish for doors.</div></div>
+            <div class="work-card"><div class="work-icon">🏠</div><h3>Interior colour</h3><div class="work-desc">Premium emulsions, texture paints, royal finishes.</div></div>
+            <div class="work-card"><div class="work-icon">☀️</div><h3>Exterior colour</h3><div class="work-desc">Weatherproof paints, damp-proof coatings, long-life.</div></div>
+            <div class="work-card"><div class="work-icon">🪵</div><h3>Wood coating</h3><div class="work-desc">Stain, varnish, protective clear coats for doors, furniture.</div></div>
+            <div class="work-card"><div class="work-icon">🏗️</div><h3>Metal painting</h3><div class="work-desc">Primer, enamel, anti-rust for railings, gates.</div></div>
         </div>
 
-        <!-- COLOUR CHARTS (with painted homes fixed bg behind) -->
+        <!-- COLOUR CHARTS (more swatches) -->
         <div class="section-title">
             <i class="fa-regular fa-swatchbook"></i>  
             <span>Colour charts · pick your shade</span>
@@ -568,9 +605,9 @@
             <div class="chart-card"><div class="chart-title">🎨 Exterior · accent</div><div class="color-swatch-grid"><div class="swatch"><div class="swatch-circle" style="background:#7f5539;"></div><span>chestnut</span></div><div class="swatch"><div class="swatch-circle" style="background:#9c6b4b;"></div><span>leather</span></div><div class="swatch"><div class="swatch-circle" style="background:#b7414b;"></div><span>brick</span></div><div class="swatch"><div class="swatch-circle" style="background:#a63437;"></div><span>russet</span></div><div class="swatch"><div class="swatch-circle" style="background:#4a6c8b;"></div><span>navy</span></div><div class="swatch"><div class="swatch-circle" style="background:#2d5f7e;"></div><span>deepsea</span></div><div class="swatch"><div class="swatch-circle" style="background:#3a6b4b;"></div><span>evergreen</span></div><div class="swatch"><div class="swatch-circle" style="background:#5f4b3a;"></div><span>walnut</span></div></div></div>
         </div>
 
-        <div class="work-tagline"><i class="fa-regular fa-hand-sparkles"></i> Custom colour matching · free site visit · PU pant specialists · Holi patch colours inspired!</div>
+        <div class="work-tagline"><i class="fa-regular fa-hand-sparkles"></i> Custom colour matching · free site visit · Holi patch colours inspired!</div>
 
-        <!-- LENSES SECTION (cards perfectly aligned) -->
+        <!-- LENSES SECTION -->
         <div class="section-title"><i class="fa-regular fa-circle-half-stroke"></i><span>colour contacts · every shade</span></div>
         <div class="product-grid">
             <div class="product-card"><div class="work-icon">🌫️</div><h3>steel grey</h3><div class="shades"><div class="shade-dot" style="background:#a9a9a9;"></div><div class="shade-dot" style="background:#808080;"></div><div class="shade-dot" style="background:#5a5a5a;"></div></div><div class="price-row"><span>₹1499</span></div></div>
@@ -589,7 +626,7 @@
 
         <!-- form -->
         <div class="inquiry-box">
-            <h3><i class="fa-regular fa-message"></i> book colour consultation</h3>
+            <h3 style="font-size: clamp(1.4rem,4vw,2rem); margin-bottom:1.2rem;"><i class="fa-regular fa-message"></i> book colour consultation</h3>
             <form onsubmit="event.preventDefault(); alert('✅ Thanks! Shiva Bhai will contact you soon.');">
                 <div class="form-row"><div class="form-group"><input type="text" placeholder="your name" required></div><div class="form-group"><input type="tel" placeholder="phone number" required></div></div>
                 <div class="form-group"><textarea rows="2" placeholder="PU pant / interior / exterior / lenses / polishing ..."></textarea></div>
@@ -600,21 +637,16 @@
         <!-- footer -->
         <div class="footer">
             <p>शिवा भाई · Dhantekari Akota Road, Behind police line, Vadodara · Owner: Sivram Sharma · 📞 97241 26631 · 📧 shivsharma67608@gmail.com</p>
-            <p style="margin-top:0.5rem;">🌈 colour contacts · PU pant · polishing · interior & exterior · colour charts · Holi patch colours</p>
+            <p style="margin-top:0.5rem;">🌈 colour contacts · PU pant · polishing · interior & exterior · colour charts · full colour</p>
         </div>
     </div>
 
     <script>
-        (function() {
-            console.log("Shiva Bhai: painting + lenses — holi patches & painted homes fixed bg");
-            const swatches = document.querySelectorAll('.swatch-circle');
-            swatches.forEach(sw => {
-                sw.addEventListener('click', () => {
-                    const style = window.getComputedStyle(sw);
-                    alert('🎨 shade: ' + style.backgroundColor + ' — Ask Shiva Bhai for more!');
-                });
+        document.querySelectorAll('.swatch-circle').forEach(sw => {
+            sw.addEventListener('click', () => {
+                alert('🎨 shade selected! Ask Shiva Bhai for details.');
             });
-        })();
+        });
     </script>
 </body>
 </html>
