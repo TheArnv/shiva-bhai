@@ -2,892 +2,561 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <title>Shiva Bhai · Colour expert · Why choose us & Testimonials</title>
-    <!-- Font Awesome 6 (Free) - using latest version with all icons -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arnav Sharma</title>
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
         }
 
+        /* ----- FULL SCREEN WATER (complete cover) ----- */
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #fefcf5;
-            color: #2f3e2e;
-            line-height: 1.5;
+            min-height: 100vh;
+            width: 100%;
+            background: radial-gradient(circle at 30% 40%, #6ab0ec, #1f6faa 80%, #094677);
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.8rem 1.2rem;
+            cursor: none;          /* hide default, show custom cursor */
+            overflow-x: hidden;
         }
 
-        /* FIXED BACKGROUND IMAGE: a beautiful home */
-        body::before {
-            content: "";
+        /* water surface layers – fill entire screen */
+        .water-cover {
             position: fixed;
             top: 0;
             left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(255, 255, 255, 0.3) 0%, transparent 40%),
+                radial-gradient(circle at 80% 20%, rgba(230, 245, 255, 0.35) 0%, transparent 45%),
+                repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 15px, transparent 15px, transparent 35px),
+                linear-gradient(135deg, #3f9be0, #7fc4f0, #b3dcff);
+            box-shadow: inset 0 0 90px #8cc3f0, 0 0 0 2px rgba(255,255,255,0.2) inset;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.99;
+            backdrop-filter: blur(1px);
+        }
+
+        /* floating wave pattern */
+        .water-pattern {
+            position: fixed;
             width: 100%;
             height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            opacity: 0.12;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120" opacity="0.12"><path d="M0 35 Q 30 15, 60 35 T 120 35 T 180 35 T 240 35" stroke="white" fill="none" stroke-width="3"/><path d="M0 85 Q 40 105, 85 85 T 160 85 T 220 85" stroke="white" fill="none" stroke-width="2.5" opacity="0.6"/><circle cx="90" cy="20" r="14" fill="white" opacity="0.1"/><circle cx="170" cy="70" r="20" fill="white" opacity="0.08"/></svg>');
+            background-repeat: repeat;
+            background-size: 320px 200px;
             pointer-events: none;
-            z-index: 0;
-        }
-
-        /* yellow/white/green theme */
-        :root {
-            --yellow: #f9d342;
-            --yellow-light: #fbe9b1;
-            --yellow-pale: #fff8e0;
-            --green: #2c6e49;
-            --green-light: #d4e9d6;
-            --green-pale: #eaf5ec;
-            --white: #ffffff;
-            --offwhite: #fefcf5;
-        }
-
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
             z-index: 2;
+            mix-blend-mode: overlay;
         }
 
-        /* top bar */
-        .top-bar {
-            background-color: var(--green);
-            color: white;
-            padding: 0.5rem 0;
-            font-size: 0.9rem;
-            position: relative;
-            z-index: 3;
-        }
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .top-bar i { margin-right: 0.5rem; color: var(--yellow); }
-        .top-bar a { color: white; text-decoration: none; }
-        .top-bar a:hover { text-decoration: underline; }
-
-        /* header */
-        .header {
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(8px);
-            padding: 1rem 0;
-            box-shadow: 0 6px 18px rgba(44,110,73,0.15);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            border-bottom: 4px solid var(--yellow);
-        }
-        .header .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--green);
-            background: var(--yellow);
+        /* ----- NEW CURSOR STYLE (sailboat with flag) ----- */
+        .boat-cursor {
+            position: fixed;
             width: 60px;
             height: 60px;
-            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            filter: drop-shadow(0 10px 16px #022b44);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 0 #b9942e;
-            border: 2px solid var(--green);
-        }
-        .logo-text h1 {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--green);
-            line-height: 1.2;
-        }
-        .logo-text span {
-            font-size: 0.85rem;
-            color: #5b6e5b;
-            display: block;
-        }
-        .nav-contact {
-            display: flex;
-            gap: 1.2rem;
-            flex-wrap: wrap;
-        }
-        .nav-contact a {
-            text-decoration: none;
-            color: var(--green);
-            font-weight: 500;
-            background: var(--yellow-pale);
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            border: 2px solid var(--yellow);
-            transition: 0.2s;
-        }
-        .nav-contact a:hover { background: var(--yellow); }
-
-        /* hero */
-        .hero {
-            background: rgba(255, 252, 240, 0.85);
-            backdrop-filter: blur(4px);
-            padding: 2.5rem 0;
-            margin: 2rem 0;
-            border-radius: 3rem;
-            border: 4px solid var(--yellow);
-        }
-        .hero .container {
-            display: flex;
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        .hero h2 {
-            font-size: 2.2rem;
-            font-weight: 700;
-            color: var(--green);
-        }
-        .hero h2 i { color: var(--yellow); background: var(--green); border-radius: 50%; padding: 0.5rem; }
-        .owner-card {
-            background: var(--white);
-            border-radius: 60px;
-            padding: 1.2rem 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            align-items: center;
-            border: 3px solid var(--yellow);
-        }
-        .owner-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background: var(--green-pale);
-            padding: 0.5rem 1.5rem;
-            border-radius: 60px;
-            border: 2px solid var(--green-light);
-        }
-        .owner-item i { color: var(--green); }
-        .address-tag {
-            background: var(--yellow-pale);
-            padding: 0.6rem 2rem;
-            border-radius: 60px;
-            border: 2px dashed var(--green);
+            transition: transform 0.08s;
+            will-change: left, top;
         }
 
-        /* section title */
-        .section-title {
-            font-size: 2rem;
-            font-weight: 700;
-            color: var(--green);
-            margin: 3rem 0 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            padding: 0.5rem 2rem;
-            border-radius: 80px;
-            width: fit-content;
-            border: 4px solid var(--yellow);
-        }
-        .section-title i {
-            background: var(--yellow);
-            color: var(--green);
-            padding: 0.8rem;
-            border-radius: 50%;
-        }
-
-        /* HOME & INDUSTRIAL WORK with RATES */
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-        .work-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border: 3px solid var(--yellow);
-            box-shadow: 0 15px 25px -10px rgba(44,110,73,0.3);
-            transition: 0.2s;
-        }
-        .work-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--green);
-        }
-        .work-icon { 
-            font-size: 3.2rem; 
-            color: var(--green); 
-            margin-bottom: 1rem;
-            background: var(--yellow-pale);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            border: 3px solid var(--yellow);
-        }
-        .work-card h3 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--green);
-            margin-bottom: 0.8rem;
-        }
-        .work-desc {
-            color: #3e553e;
-            margin-bottom: 1.2rem;
-            font-size: 1rem;
-            background: var(--yellow-pale);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-        }
-        .rate-tag {
-            background: var(--green);
-            color: white;
-            font-size: 1.4rem;
-            font-weight: 700;
-            padding: 0.5rem 1.2rem;
-            border-radius: 60px;
-            display: inline-block;
-            border: 3px solid var(--yellow);
-        }
-        .rate-tag small { font-size: 0.9rem; font-weight: 400; }
-
-        /* WHY CHOOSE US SECTION */
-        .why-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0 3rem;
-        }
-        .why-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            border: 3px solid var(--yellow);
-            box-shadow: 0 15px 25px -8px rgba(44,110,73,0.2);
-            transition: 0.2s;
-        }
-        .why-card:hover {
-            transform: scale(1.02);
-            border-color: var(--green);
-            background: var(--green-pale);
-        }
-        .why-icon {
-            font-size: 2.8rem;
-            color: var(--green);
-            background: var(--yellow);
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            border: 3px solid var(--green);
-        }
-        .why-card h3 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: var(--green);
-            margin-bottom: 1rem;
-        }
-        .why-card p {
-            color: #3a533a;
-            font-size: 1rem;
-        }
-
-        /* TESTIMONIALS SECTION */
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0 3rem;
-        }
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 2.5rem;
-            padding: 2rem 1.8rem;
-            border: 3px solid var(--yellow);
-            box-shadow: 0 15px 25px -8px rgba(44,110,73,0.2);
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: '\f10d';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            font-size: 2rem;
-            color: var(--yellow);
-            position: absolute;
-            top: 1rem;
-            right: 1.8rem;
-            opacity: 0.3;
-        }
-        .testimonial-text {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: #2d3d2d;
-            margin: 1rem 0 1.5rem;
-            line-height: 1.6;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            border-top: 2px dashed var(--yellow);
-            padding-top: 1.2rem;
-        }
-        .author-avatar {
-            background: var(--green);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border: 3px solid var(--yellow);
-        }
-        .author-info h4 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--green);
-        }
-        .author-info p {
-            font-size: 0.9rem;
-            color: #5d725d;
-        }
-        .rating {
-            color: var(--yellow);
-            margin-top: 0.3rem;
-            font-size: 0.9rem;
-        }
-        .rating i {
-            margin-right: 0.1rem;
-        }
-
-        /* COLOUR FANTUM SECTION - 2 cards per row */
-        .chart-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .chart-card {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(4px);
-            border-radius: 2.5rem;
-            padding: 2rem 1.5rem;
-            border: 4px solid var(--yellow);
-            box-shadow: 0 20px 30px -8px rgba(44,110,73,0.25);
-            width: 100%;
-            transition: 0.2s;
-        }
-        .chart-card:hover {
-            transform: scale(1.01);
-            border-color: var(--green);
-        }
-
-        .chart-title {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--green);
-            margin-bottom: 1.5rem;
-            border-bottom: 4px dashed var(--yellow);
-            padding-bottom: 0.8rem;
-            text-align: center;
-        }
-
-        .color-swatch-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            justify-items: center;
-            align-items: center;
-        }
-
-        .swatch {
-            text-align: center;
-            width: 100%;
-        }
-
-        .swatch-circle {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 1.5rem;
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1), 0 0 0 4px white, 0 0 0 6px var(--yellow);
-            margin-bottom: 0.5rem;
-            transition: 0.15s;
-            cursor: pointer;
-        }
-
-        .swatch-circle:hover {
+        .boat-cursor i {
+            font-size: 4rem;
+            color: #fefefe;
+            text-shadow: 2px 5px 12px #02457a, 0 0 10px white;
             transform: scale(1.05);
-            box-shadow: 0 10px 20px var(--green), 0 0 0 4px white, 0 0 0 6px var(--green);
         }
 
-        .swatch span {
-            font-size: 0.85rem;
-            font-weight: 600;
-            background: var(--yellow-pale);
-            padding: 0.25rem 0.8rem;
-            border-radius: 40px;
-            color: var(--green);
-            display: inline-block;
-        }
-
-        /* LENSES SECTION */
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.8rem;
-            margin: 2rem 0;
-        }
-        .product-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 2.5rem;
-            padding: 1.8rem 1rem;
-            border: 3px solid var(--yellow);
-            text-align: center;
-        }
-        .product-icon {
-            font-size: 2.8rem;
-            color: var(--green);
-            background: var(--yellow-pale);
-            width: 70px;
-            height: 70px;
+        /* smaller wake behind */
+        .wake {
+            position: fixed;
+            width: 48px;
+            height: 24px;
+            background: radial-gradient(ellipse at 30% 50%, rgba(255,255,255,0.6) 0%, transparent 75%);
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1rem;
-            border: 3px solid var(--yellow);
+            filter: blur(8px);
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0.6;
+            mix-blend-mode: screen;
         }
-        .product-card h3 { 
-            color: var(--green); 
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-        }
-        .shades {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            margin: 1rem 0;
-        }
-        .shade-dot {
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px white, 0 0 0 5px var(--yellow);
-        }
-        .product-card .rate-tag { font-size: 1rem; padding: 0.3rem 1rem; }
 
-        /* info panel */
-        .info-panel {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 4rem;
-            padding: 2rem;
-            margin: 3rem 0;
-            border: 5px solid var(--yellow);
+        /* resume card – translucent floating */
+        .resume-card {
+            max-width: 1220px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(16px) saturate(180%);
+            border-radius: 3.8rem 3rem 3.8rem 3rem;
+            box-shadow: 0 40px 70px -20px #012b48, 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
+            padding: 2.3rem 2.8rem;
+            transition: transform 0.02s;
+            will-change: transform;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            position: relative;
+            z-index: 30;
+            color: #013a62;
+        }
+
+        /* photo header */
+        .photo-header {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
-            align-items: center;
             gap: 2rem;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid #cbe5fe;
+            padding-bottom: 1.2rem;
         }
-        .contact-details {
+
+        .photo-frame {
+            width: 150px;
+            height: 150px;
+            border-radius: 60% 40% 65% 35% / 45% 55% 45% 55%;
+            background: linear-gradient(150deg, #cae6ff, #7cb9f0);
             display: flex;
-            flex-wrap: wrap;
-            gap: 1.2rem;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid white;
+            box-shadow: 0 22px 26px -10px #215f8a;
         }
-        .contact-details div {
-            background: var(--green-pale);
-            padding: 0.6rem 1.5rem;
-            border-radius: 60px;
-            border: 2px solid var(--green-light);
+
+        .photo-frame i {
+            font-size: 6.2rem;
+            color: #ffffff;
+            filter: drop-shadow(0 4px 6px #15507c);
+        }
+
+        .name-title h1 {
+            font-size: 3.3rem;
+            font-weight: 600;
+            color: #003363;
+            text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.7);
+        }
+
+        .name-title .sub {
+            background: #c2e2ff;
+            padding: 0.4rem 1.8rem;
+            border-radius: 40px;
+            color: #014177;
+            border: 1px solid white;
+            display: inline-block;
             font-weight: 500;
         }
-        .email-phone a {
-            text-decoration: none;
-            background: var(--yellow);
-            color: var(--green);
-            padding: 0.8rem 2rem;
+
+        .contact-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(5px);
+            padding: 1.3rem 2.2rem;
             border-radius: 60px;
-            font-weight: 600;
-            border: 3px solid var(--green);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+            margin: 1.5rem 0 2rem;
+            border: 1px solid white;
         }
 
-        /* FORM */
-        .inquiry-box {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(4px);
-            border-radius: 3.5rem;
-            padding: 2.5rem;
-            border: 5px solid var(--yellow);
-            margin: 3rem 0;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            color: #003e75;
+            font-weight: 500;
         }
+
+        .contact-item i {
+            background: white;
+            border-radius: 50%;
+            width: 2.1rem;
+            height: 2.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0165ad;
+        }
+
+        .section-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            color: #003868;
+            border-left: 12px solid #7fbaf5;
+            padding-left: 1.2rem;
+            margin: 2rem 0 1.2rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-box {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(6px);
+            border-radius: 2.2rem;
+            padding: 1.5rem 1.8rem;
+            border: 1px solid white;
+            box-shadow: 0 6px 20px #b6d7f7;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            gap: 1rem;
+        }
+
+        .chip-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .chip {
+            background: #daecff;
+            padding: 0.3rem 1.3rem;
+            border-radius: 40px;
+            border: 1px solid white;
+            color: #014685;
+        }
+
+        /* contact form */
+        .form-section {
+            margin: 2.5rem 0 1.5rem;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(8px);
+            border-radius: 3rem;
+            padding: 2rem 2.3rem;
+            border: 1px solid white;
+        }
+
         .form-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.2rem;
+            gap: 1.5rem;
         }
-        .form-group { flex: 1 1 200px; }
+
+        .form-group {
+            flex: 1 1 240px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: #014073;
+            margin-bottom: 0.4rem;
+        }
+
         .form-group input, .form-group textarea {
             width: 100%;
-            padding: 1rem 1.5rem;
-            border: 3px solid var(--green-light);
-            border-radius: 60px;
+            padding: 0.8rem 1.3rem;
+            border-radius: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.9);
             font-size: 1rem;
-            background: white;
+            outline: none;
+            transition: 0.2s;
+            color: #002a4a;
         }
-        .form-group textarea { border-radius: 30px; }
-        .btn {
-            background: var(--yellow);
-            border: none;
-            padding: 1rem 2.8rem;
-            border-radius: 60px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--green);
-            border: 3px solid var(--green);
-            cursor: pointer;
-            transition: 0.15s;
-            box-shadow: 0 8px 18px #2c6e4950;
-        }
-        .btn:hover { background: #f5c912; }
-        #formStatus { margin-top: 1rem; font-weight: 500; }
 
-        /* footer */
-        .footer {
-            background: var(--green);
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #1c7ed6;
+            box-shadow: 0 0 0 3px rgba(0,110,230,0.2);
+        }
+
+        .btn-send {
+            background: #196cbd;
             color: white;
-            padding: 2rem 0;
-            margin-top: 3rem;
-            border-top: 10px solid var(--yellow);
-            text-align: center;
+            border: none;
+            padding: 0.9rem 2.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 8px 16px #094377;
+            transition: 0.2s;
+            border: 1px solid white;
+            margin-top: 1.2rem;
         }
-        .footer a { color: var(--yellow); }
 
-        @media (max-width: 900px) {
-            .chart-grid { gap: 1.5rem; }
+        .btn-send:hover {
+            background: #0b5090;
+            transform: scale(1.02);
         }
-        @media (max-width: 700px) {
-            .chart-grid { grid-template-columns: 1fr; }
-            .chart-card { max-width: 500px; margin: 0 auto; }
+
+        .form-message {
+            margin-top: 1rem;
+            font-weight: 500;
         }
-        @media (max-width: 768px) {
-            .container { padding: 0 1.2rem; }
-            .hero h2 { font-size: 1.8rem; }
-            .owner-card { flex-direction: column; align-items: stretch; }
-            .section-title { font-size: 1.6rem; padding: 0.5rem 1.2rem; }
+
+        .signature-block {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            border-top: 2px dashed #b7d6f5;
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .declaration {
+            background: #e8f2ff;
+            padding: 1rem 2rem;
+            border-radius: 50px 20px;
+        }
+
+        .signature span {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 2rem;
+            border-top: 1px solid #9ac2e5;
+            display: block;
+            margin-top: 0.5rem;
+            padding-top: 0.5rem;
+        }
+
+        @media (max-width:700px){
+            .resume-card{padding:1.5rem;}
         }
     </style>
 </head>
 <body>
+    <!-- full water overlay -->
+    <div class="water-cover"></div>
+    <div class="water-pattern"></div>
 
-<!-- TOP BAR -->
-<div class="top-bar">
-    <div class="container">
-        <div><i class="fas fa-map-marker-alt"></i> Dhantekari Akota Road, Behind police line, Vadodara</div>
-        <div><i class="fas fa-phone-alt"></i> +91 97241 26632 | <i class="fas fa-envelope"></i> <a href="mailto:shivsharma67608@gmail.com">shivsharma67608@gmail.com</a></div>
+    <!-- NEW CURSOR: sailboat with flag (fontawesome) -->
+    <div class="boat-cursor" id="boatCursor">
+        <i class="fa-solid fa-sailboat"></i>   <!-- changed to sailboat, feels like water -->
     </div>
-</div>
+    <div class="wake" id="boatWake"></div>
 
-<!-- HEADER -->
-<div class="header">
-    <div class="container">
-        <div class="logo-container">
-            <div class="logo-icon"><i class="fas fa-eye"></i></div>
-            <div class="logo-text">
-                <h1>शिवा भाई</h1>
-                <span><i class="fas fa-paint-brush"></i> colour expert · painting & contacts</span>
+    <!-- main resume card -->
+    <div class="resume-card" id="resumeCard">
+        <!-- photo & name -->
+        <div class="photo-header">
+            <div class="photo-frame"><i class="fas fa-user-circle"></i></div>
+            <div class="name-title">
+                <h1>Arnav Sharma</h1>
+                <div class="sub"><i class="fas fa-location-dot"></i> Prayagraj, U.P.</div>
             </div>
         </div>
-        <div class="nav-contact">
-            <a href="#why"><i class="fas fa-star"></i> Why us</a>
-            <a href="#testimonials"><i class="fas fa-comments"></i> Testimonials</a>
-            <a href="#contact"><i class="fas fa-envelope"></i> Contact</a>
-        </div>
-    </div>
-</div>
 
-<!-- HERO -->
-<div class="hero">
-    <div class="container">
-        <h2><i class="fas fa-star"></i> Owner: Sivram Sharma (Shiva Bhai)</h2>
-        <div class="owner-card">
-            <div class="owner-item"><i class="fas fa-building"></i> Dhantekari Akota Road</div>
-            <div class="owner-item"><i class="fas fa-map-marked-alt"></i> Behind police line, Vadodara</div>
-            <div class="owner-item"><i class="fas fa-flag"></i> Gujarat</div>
-            <div class="address-tag"><i class="fas fa-map-pin"></i> Akota, Vadodara 390020</div>
+        <!-- contact row exact data -->
+        <div class="contact-row">
+            <div class="contact-item"><i class="fas fa-phone-alt"></i> 7753932657</div>
+            <div class="contact-item"><i class="fas fa-map-pin"></i> Village Dando, Post Rokari</div>
+            <div class="contact-item"><i class="fas fa-city"></i> Distric Prayagraj (U.P.)</div>
+            <div class="contact-item"><i class="fas fa-envelope"></i> arnvsharma5245@gmail.com</div>
+            <div class="contact-item"><i class="fas fa-mail-bulk"></i> PIN 212307</div>
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <!-- HOME & INDUSTRIAL WORK with RATES -->
-    <div class="section-title" id="home-work">
-        <i class="fas fa-roller"></i> Home & industrial work · with rates
-    </div>
-    <div class="work-grid">
-        <div class="work-card"><div class="work-icon"><i class="fas fa-couch"></i></div><h3>PU Pant</h3><div class="work-desc">Polyurethane for furniture, floors</div><div class="rate-tag">₹280 <small>/sq.ft</small></div></div>
-        <div class="work-card"><div class="work-icon"><i class="fas fa-brush"></i></div><h3>Polishing</h3><div class="work-desc">Wood, melamine, French polish</div><div class="rate-tag">₹180 <small>/sq.ft</small></div></div>
-        <div class="work-card"><div class="work-icon"><i class="fas fa-home"></i></div><h3>Interior colour</h3><div class="work-desc">Premium emulsions, texture</div><div class="rate-tag">₹220 <small>/sq.ft</small></div></div>
-        <div class="work-card"><div class="work-icon"><i class="fas fa-sun"></i></div><h3>Exterior colour</h3><div class="work-desc">Weatherproof, long-life</div><div class="rate-tag">₹260 <small>/sq.ft</small></div></div>
-        <div class="work-card"><div class="work-icon"><i class="fas fa-tree"></i></div><h3>Wood coating</h3><div class="work-desc">Stain, varnish, clear coats</div><div class="rate-tag">₹200 <small>/sq.ft</small></div></div>
-        <div class="work-card"><div class="work-icon"><i class="fas fa-industry"></i></div><h3>Metal painting</h3><div class="work-desc">Primer, enamel, anti-rust</div><div class="rate-tag">₹190 <small>/sq.ft</small></div></div>
-    </div>
+        <!-- objective -->
+        <div class="section-title"><i class="fas fa-bullseye"></i> Career Objective</div>
+        <div class="info-box" style="background:rgba(255,255,255,0.7); margin-bottom:1.5rem;">
+            To secure a challenging and responsible position in a reputable organization where I can effectively utilize my knowledge, technical skills, and dedication to contribute to the success and growth of the organization. I aim to work in a dynamic and learning-oriented environment that encourages innovation, creativity, and professional development. I am eager to continuously improve my abilities, gain valuable experience, and adapt to new technologies while maintaining a high level of professionalism, integrity, and commitment. My objective is to build a successful career by contributing positively to organizational goals while enhancing my personal and professional skills through continuous learning and hard work.
+        </div>
 
-    <!-- WHY CHOOSE US SECTION -->
-    <div class="section-title" id="why">
-        <i class="fas fa-star"></i> Why choose Shiva Bhai?
-    </div>
-    <div class="why-grid">
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-clock"></i></div>
-            <h3>10+ Years Experience</h3>
-            <p>Serving Vadodara since 2012 with premium colour solutions for homes and businesses.</p>
+        <!-- two columns: O Level added -->
+        <div class="grid-2">
+            <div class="info-box">
+                <strong><i class="fas fa-laptop-code"></i> Computer Knowledge</strong>
+                <ul class="info-list">
+                    <li><i class="fas fa-diploma"></i> Advance Diploma In Computer Application (ADCA) – ASIT Institute</li>
+                    <li><i class="fas fa-certificate"></i> Course on Computer Concept (CCC) – NIELIT</li>
+                    <li><i class="fas fa-plus-circle"></i> <strong>O Level</strong> – NIELIT</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <strong><i class="fas fa-graduation-cap"></i> Academic qualification</strong>
+                <ul class="info-list">
+                    <li><i class="fas fa-school"></i> Intermediate from U.P. Board Allahabad with second division in 2022</li>
+                    <li><i class="fas fa-school"></i> High School from U.P. Board Allahabad with first division in 2020</li>
+                </ul>
+            </div>
         </div>
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-gem"></i></div>
-            <h3>Premium Quality</h3>
-            <p>We use only top-grade paints, polishes, and materials for a lasting finish.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-users"></i></div>
-            <h3>Expert Team</h3>
-            <p>Skilled professionals for interior/exterior, PU pant, polishing, and colour contacts.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-tags"></i></div>
-            <h3>Best Prices</h3>
-            <p>Competitive rates with no hidden charges. Free consultation and site visit.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-hourglass-half"></i></div>
-            <h3>On-Time Delivery</h3>
-            <p>We respect your time and complete projects as promised.</p>
-        </div>
-        <div class="why-card">
-            <div class="why-icon"><i class="fas fa-smile"></i></div>
-            <h3>100% Satisfaction</h3>
-            <p>Thousands of happy customers across Vadodara. We guarantee your happiness.</p>
-        </div>
-    </div>
 
-    <!-- TESTIMONIALS SECTION -->
-    <div class="section-title" id="testimonials">
-        <i class="fas fa-comments"></i> What our customers say
-    </div>
-    <div class="testimonial-grid">
-        <div class="testimonial-card">
-            <div class="testimonial-text">"Shiva Bhai did an amazing job with our home interior. The colour fantum shades are exactly what we wanted. Professional team and excellent finishing!"</div>
-            <div class="testimonial-author">
-                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
-                <div class="author-info">
-                    <h4>Rahul Patel</h4>
-                    <p>Interior Painting · Akota</p>
-                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <!-- personal & strength -->
+        <div class="grid-2" style="margin-top:1rem;">
+            <div class="info-box">
+                <strong><i class="fas fa-id-card"></i> Personal Information</strong>
+                <ul class="info-list">
+                    <li><i class="fas fa-user"></i> Name : Arnav Sharma</li>
+                    <li><i class="fas fa-user-tie"></i> Father’s Name : Sivram Sharma</li>
+                    <li><i class="fas fa-calendar-alt"></i> D.O.B. : 20/07/2004</li>
+                    <li><i class="fas fa-venus-mars"></i> Gender : Male</li>
+                    <li><i class="fas fa-flag"></i> Nationality : Indian</li>
+                    <li><i class="fas fa-language"></i> Language Know : Hindi, English</li>
+                </ul>
+            </div>
+            <div class="info-box">
+                <strong><i class="fas fa-dumbbell"></i> Strength</strong>
+                <div class="chip-list">
+                    <span class="chip">Hard Working</span>
+                    <span class="chip">Leadership Quality</span>
+                    <span class="chip">Adaptability</span>
+                    <span class="chip">Honesty</span>
                 </div>
             </div>
         </div>
-        <div class="testimonial-card">
-            <div class="testimonial-text">"Got PU pant for my wooden furniture. The finish is superb and the rates are very reasonable. Highly recommend Shiva Bhai for any painting work."</div>
-            <div class="testimonial-author">
-                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
-                <div class="author-info">
-                    <h4>Sunita Desai</h4>
-                    <p>PU Pant · Alkapuri</p>
-                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+
+        <!-- CONTACT FORM (sends to Gmail) -->
+        <div class="form-section">
+            <div style="display:flex; gap:0.7rem; align-items:center; margin-bottom:1.2rem;">
+                <i class="fas fa-paper-plane" style="font-size:2rem; color:#0157a1;"></i>
+                <h2 style="color:#00305a;">send message (direct to Gmail)</h2>
+            </div>
+            <form id="gmailForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="far fa-user"></i> Your name</label>
+                        <input type="text" id="nameInput" placeholder="e.g. Rajesh" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="far fa-envelope"></i> Your email</label>
+                        <input type="email" id="emailInput" placeholder="raj@example.com" required>
+                    </div>
                 </div>
-            </div>
-        </div>
-        <div class="testimonial-card">
-            <div class="testimonial-text">"I bought colour contact lenses from Shiva Bhai. Great collection, perfect fit, and very hygienic. The owner personally helped me choose the right shade."</div>
-            <div class="testimonial-author">
-                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
-                <div class="author-info">
-                    <h4>Amit Joshi</h4>
-                    <p>Colour Contacts · Fatehgunj</p>
-                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <div class="form-group" style="margin-top: 0.8rem;">
+                    <label><i class="fas fa-comment"></i> Message</label>
+                    <textarea id="messageInput" rows="3" placeholder="I would like to hire you ..." required></textarea>
                 </div>
+                <button type="submit" class="btn-send"><i class="fa-solid fa-sailboat" style="margin-right:0.5rem;"></i> Send via Gmail</button>
+                <div id="formFeedback" class="form-message"></div>
+            </form>
+        </div>
+
+        <!-- Declaration & signature (exact) -->
+        <div class="signature-block">
+            <div class="declaration">
+                <i class="fas fa-check-circle" style="color:#1f6e43;"></i> <strong>Declaration</strong>: I hereby declare that all afore mentioned information is true and best to my knowledge.<br>
+                <span style="font-size:0.95rem;">Date __/__/__ &nbsp;&nbsp; Place : Dando Rokari Karachhana Prayagraj</span>
+            </div>
+            <div class="signature">
+                Signature <span>(Arnav Sharma)</span>
             </div>
         </div>
-        <div class="testimonial-card">
-            <div class="testimonial-text">"Exterior painting for my bungalow – outstanding weatherproof coating. Even after heavy rain, the colours look fresh. Thank you Shiva Bhai!"</div>
-            <div class="testimonial-author">
-                <div class="author-avatar"><i class="fas fa-user-circle"></i></div>
-                <div class="author-info">
-                    <h4>Meera Shah</h4>
-                    <p>Exterior Paint · Gotri</p>
-                    <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                </div>
-            </div>
-        </div>
     </div>
 
-    <!-- COLOUR FANTUM SECTION - 2 CARDS PER ROW -->
-    <div class="section-title"><i class="fas fa-swatchbook"></i> Colour fantum · pick your shade</div>
-    <div class="chart-grid">
-        <div class="chart-card"><div class="chart-title"><i class="fas fa-snowflake"></i> Interior cool</div><div class="color-swatch-grid">
-            <div class="swatch"><div class="swatch-circle" style="background:#e8f0fe;"></div><span>ice</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#d4e2ed;"></div><span>mist</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#c0d6e4;"></div><span>sky</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#aac3d4;"></div><span>stone</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#e1d7d0;"></div><span>greige</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#d6c8c1;"></div><span>mushroom</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#cab9ae;"></div><span>taupe</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#b8a99a;"></div><span>warm</span></div>
-        </div></div>
-        <div class="chart-card"><div class="chart-title"><i class="fas fa-fire"></i> Interior warm</div><div class="color-swatch-grid">
-            <div class="swatch"><div class="swatch-circle" style="background:#fbe9e7;"></div><span>blush</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#f8d5c0;"></div><span>peach</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#f5c6a8;"></div><span>apricot</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#edb692;"></div><span>terra</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#fae4bc;"></div><span>vanilla</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#f6d6a8;"></div><span>wheat</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#f0c48b;"></div><span>honey</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#e8b575;"></div><span>amber</span></div>
-        </div></div>
-        <div class="chart-card"><div class="chart-title"><i class="fas fa-leaf"></i> Exterior earth</div><div class="color-swatch-grid">
-            <div class="swatch"><div class="swatch-circle" style="background:#cbb99f;"></div><span>sand</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#b7a384;"></div><span>clay</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#9f8b72;"></div><span>mocha</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#867158;"></div><span>coffee</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#a9b89b;"></div><span>sage</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#8da78a;"></div><span>olive</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#6c8c74;"></div><span>forest</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#527a66;"></div><span>pine</span></div>
-        </div></div>
-        <div class="chart-card"><div class="chart-title"><i class="fas fa-palette"></i> Exterior accent</div><div class="color-swatch-grid">
-            <div class="swatch"><div class="swatch-circle" style="background:#7f5539;"></div><span>chestnut</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#9c6b4b;"></div><span>leather</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#b7414b;"></div><span>brick</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#a63437;"></div><span>russet</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#4a6c8b;"></div><span>navy</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#2d5f7e;"></div><span>deepsea</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#3a6b4b;"></div><span>evergreen</span></div>
-            <div class="swatch"><div class="swatch-circle" style="background:#5f4b3a;"></div><span>walnut</span></div>
-        </div></div>
-    </div>
+    <script>
+        (function() {
+            // ========== WATER MOVEMENT (boat + card drift) ==========
+            const card = document.getElementById('resumeCard');
+            const boat = document.getElementById('boatCursor');
+            const wake = document.getElementById('boatWake');
+            let mouseX = window.innerWidth/2, mouseY = window.innerHeight/2;
+            let boatX = mouseX, boatY = mouseY;
+            let cardX = 0, cardY = 0;
+            let targetCardX = 0, targetCardY = 0;
 
-    <!-- LENSES SECTION -->
-    <div class="section-title"><i class="fas fa-eye"></i> Colour contacts</div>
-    <div class="product-grid">
-        <div class="product-card"><div class="product-icon"><i class="fas fa-eye"></i></div><h3>steel grey</h3><div class="shades"><div class="shade-dot" style="background:#a9a9a9;"></div><div class="shade-dot" style="background:#808080;"></div><div class="shade-dot" style="background:#5a5a5a;"></div></div><div class="rate-tag">₹1499</div></div>
-        <div class="product-card"><div class="product-icon"><i class="fas fa-eye"></i></div><h3>hazel green</h3><div class="shades"><div class="shade-dot" style="background:#7a9b78;"></div><div class="shade-dot" style="background:#5f8575;"></div><div class="shade-dot" style="background:#b7b17a;"></div></div><div class="rate-tag">₹1599</div></div>
-        <div class="product-card"><div class="product-icon"><i class="fas fa-eye"></i></div><h3>blue myst</h3><div class="shades"><div class="shade-dot" style="background:#4f7a9e;"></div><div class="shade-dot" style="background:#2c6e8f;"></div><div class="shade-dot" style="background:#48a0b0;"></div></div><div class="rate-tag">₹1699</div></div>
-        <div class="product-card"><div class="product-icon"><i class="fas fa-eye"></i></div><h3>natural brown</h3><div class="shades"><div class="shade-dot" style="background:#745d4c;"></div><div class="shade-dot" style="background:#916e58;"></div><div class="shade-dot" style="background:#b1907a;"></div></div><div class="rate-tag">₹1299</div></div>
-    </div>
+            const CARD_SMOOTH = 0.04;
+            const BOAT_SMOOTH = 0.2;   // responsiveness
 
-    <!-- INFO PANEL -->
-    <div class="info-panel" id="contact">
-        <div class="contact-details">
-            <div><i class="fas fa-user-tie"></i> Sivram Sharma</div>
-            <div><i class="fas fa-map-marker-alt"></i> Dhantekari Akota Road, Behind police line</div>
-        </div>
-        <div class="email-phone">
-            <a href="mailto:shivsharma67608@gmail.com"><i class="fas fa-envelope"></i> shivsharma67608@gmail.com</a>
-            <span style="margin-left: 1rem; font-weight: 600;"><i class="fas fa-phone-alt"></i> +91 97241 26632</span>
-        </div>
-    </div>
+            function onMouseMove(e) {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+            }
 
-    <!-- INQUIRY FORM -->
-    <div class="inquiry-box">
-        <h3 style="font-size: 2rem; color: var(--green); margin-bottom: 1.5rem;"><i class="fas fa-comment-dots" style="color: var(--yellow); background: var(--green); padding: 0.5rem; border-radius: 50%;"></i> book consultation</h3>
-        <form id="contactForm">
-            <div class="form-row">
-                <div class="form-group"><input type="text" id="name" placeholder="your name" required></div>
-                <div class="form-group"><input type="tel" id="phone" placeholder="phone number" required></div>
-            </div>
-            <div class="form-group"><textarea id="message" rows="3" placeholder="I need: interior / exterior / PU pant / lenses ..." required></textarea></div>
-            <button type="submit" class="btn" id="submitBtn"><i class="fas fa-paper-plane"></i> send enquiry</button>
-            <div id="formStatus"></div>
-        </form>
-    </div>
-</div>
+            function animationFrame() {
+                // dynamic window dimensions
+                const w = window.innerWidth;
+                const h = window.innerHeight;
+                const cX = w/2;
+                const cY = h/2;
 
-<!-- FOOTER -->
-<div class="footer">
-    <div class="container">
-        <p><i class="fas fa-copyright"></i> शिवा भाई · Dhantekari Akota Road, Behind police line, Vadodara · Owner: Sivram Sharma</p>
-        <p><i class="fas fa-phone-alt"></i> +91 97241 26632 · <i class="fas fa-envelope"></i> shivsharma67608@gmail.com</p>
-        <p style="color: var(--yellow);"><i class="fas fa-home"></i> home & industrial colour · interior/exterior rates · colour fantum · 10+ years trust</p>
-    </div>
-</div>
+                // card drift (norm based on cursor)
+                const normX = (mouseX - cX) / (w * 0.5);
+                const normY = (mouseY - cY) / (h * 0.5);
+                targetCardX = normX * 24;   // water drift range
+                targetCardY = normY * 16;
+                cardX += (targetCardX - cardX) * CARD_SMOOTH;
+                cardY += (targetCardY - cardY) * CARD_SMOOTH;
+                if (card) {
+                    card.style.transform = `translate(${cardX}px, ${cardY}px) rotate(${normX*0.7}deg)`;
+                }
 
-<script>
-    // swatch click
-    document.querySelectorAll('.swatch-circle').forEach(sw => {
-        sw.addEventListener('click', () => alert('🎨 Shade selected! Ask Shiva Bhai for details.'));
-    });
+                // boat follow
+                boatX += (mouseX - boatX) * BOAT_SMOOTH;
+                boatY += (mouseY - boatY) * BOAT_SMOOTH;
+                if (boat) {
+                    boat.style.left = boatX + 'px';
+                    boat.style.top = boatY + 'px';
+                    // slight rotation for fun
+                    const dx = mouseX - boatX;
+                    boat.style.transform = `translate(-50%, -50%) rotate(${dx*0.4}deg)`;
+                }
+                if (wake) {
+                    let wakeX = boatX - (mouseX - boatX)*1.9;
+                    let wakeY = boatY - (mouseY - boatY)*1.9;
+                    wake.style.left = wakeX + 'px';
+                    wake.style.top = wakeY + 'px';
+                    wake.style.opacity = 0.5 + Math.random()*0.2;
+                }
 
-    // email function
-    const form = document.getElementById('contactForm');
-    const submitBtn = document.getElementById('submitBtn');
-    const formStatus = document.getElementById('formStatus');
+                requestAnimationFrame(animationFrame);
+            }
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('name').value.trim();
-        const phone = document.getElementById('phone').value.trim();
-        const message = document.getElementById('message').value.trim();
+            window.addEventListener('mousemove', onMouseMove);
+            animationFrame();
 
-        if (!name || !phone || !message) {
-            formStatus.style.color = '#b7414b';
-            formStatus.textContent = '❌ Please fill all fields';
-            return;
-        }
+            // ========== CONTACT FORM -> GMAIL ==========
+            const form = document.getElementById('gmailForm');
+            const feedback = document.getElementById('formFeedback');
 
-        const subject = `Enquiry from ${name} - Shiva Bhai`;
-        const body = `Name: ${name}%0D%0APhone: ${phone}%0D%0AMessage: ${message}`;
-        const recipient = 'shivsharma67608@gmail.com';
-        const mailtoLink = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${body}`;
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
 
-        submitBtn.disabled = true;
-        formStatus.style.color = '#2c6e49';
-        formStatus.textContent = '⏳ Opening email...';
-        window.location.href = mailtoLink;
+                const name = document.getElementById('nameInput').value.trim();
+                const email = document.getElementById('emailInput').value.trim();
+                const message = document.getElementById('messageInput').value.trim();
 
-        setTimeout(() => {
-            submitBtn.disabled = false;
-            formStatus.textContent = '✅ Thanks! Please send the email from your app.';
-        }, 3000);
-    });
-</script>
+                if (!name || !email || !message) {
+                    feedback.innerHTML = '<span style="color:#b13b3b;">⚠️ all fields required</span>';
+                    return;
+                }
+
+                // Compose email body
+                const subject = "Message from resume website - Arnav Sharma";
+                const body = `Name: ${name}%0AEmail: ${email}%0A%0AMessage:%0A${message.replace(/\n/g, '%0A')}`;
+
+                // mailto (opens gmail web or default client)
+                const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=arnvsharma5245@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body.replace(/%0A/g, '\n').replace(/\n/g, '%0A'))}`;
+                window.open(mailtoLink, '_blank');
+
+                feedback.innerHTML = '<span style="color:#0b6e30;">✅ Gmail opened — ready to send!</span>';
+                // optional reset
+                document.getElementById('nameInput').value = '';
+                document.getElementById('emailInput').value = '';
+                document.getElementById('messageInput').value = '';
+            });
+
+            // initial cursor position
+            setTimeout(()=>{
+                mouseX = window.innerWidth/2;
+                mouseY = window.innerHeight/2;
+                boatX = mouseX; boatY = mouseY;
+            }, 30);
+        })();
+    </script>
 </body>
 </html>
-
